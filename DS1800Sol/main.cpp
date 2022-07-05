@@ -1,5 +1,5 @@
 #include <iostream>
-#include "2_20.h"
+#include "2_24.h"
 
 using std::cout; 
 using std::endl; 
@@ -206,7 +206,34 @@ int main(void)
 	cout << endl; 
 #endif
 #ifdef DS_2_20_H_
-
+	int arr[5] = { -1, 5, 9, -10, 3 }; 
+	partition(arr, 5); 
+	for (size_t index = 0; index < 5; ++index) {
+		cout << arr[index] << ' '; 
+	}
+	cout << endl; 
+#endif
+#ifdef DS_2_22_H_
+	int* arr = (int*)malloc(10 * sizeof(int));
+	arr[0] = -5; 
+	arr[1] = 0; 
+	arr[2] = 2; 
+	arr[3] = 7; 
+	arr[4] = 19; 
+	insert(arr, 5, 4); 
+	for (size_t index = 0; index < 6; ++index) {
+		cout << arr[index] << ' '; 
+	}
+	cout << endl; 
+#endif
+#ifdef DS_2_24_H_
+	size_t size = 12; 
+	int arr[12] = { -2, 0, 3, 5, 11, 9, 3, 20, 3, 6, -5, -8 }; 
+	delItem(arr, size, 3); 
+	for (size_t index = 0; index < size; ++index) {
+		cout << arr[index] << ' '; 
+	}
+	cout << endl; 
 #endif
 	
 	return 0; 
