@@ -1,5 +1,5 @@
 #include <iostream>
-#include "2_24.h"
+#include "2_45.h"
 
 using std::cout; 
 using std::endl; 
@@ -232,6 +232,45 @@ int main(void)
 	delItem(arr, size, 3); 
 	for (size_t index = 0; index < size; ++index) {
 		cout << arr[index] << ' '; 
+	}
+	cout << endl; 
+#endif
+#ifdef DS_2_45_H_
+	#define APPEND_CHAR(ch) \
+	do {\
+		temp = new LNode(ch); \
+		rear->next = temp; \
+		rear = temp; \
+	} while (0)
+
+	LinkedList A = new LNode;
+	LNode* rear = A;
+	LNode* temp;
+
+	APPEND_CHAR('a');
+	APPEND_CHAR('b');
+	APPEND_CHAR('c');
+	APPEND_CHAR('a');
+	APPEND_CHAR('b');
+	APPEND_CHAR('a');
+	APPEND_CHAR('b');
+	APPEND_CHAR('c');
+	APPEND_CHAR('b');
+	APPEND_CHAR('c');
+
+	LinkedList B = new LNode;
+	rear = B;
+
+	APPEND_CHAR('a');
+	APPEND_CHAR('b');
+	APPEND_CHAR('c');
+
+	revSub(A, B); 
+
+	LNode* mov = A->next; 
+	while (mov != nullptr) {
+		cout << mov->data << ' '; 
+		mov = mov->next; 
 	}
 	cout << endl; 
 #endif
