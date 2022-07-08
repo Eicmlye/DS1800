@@ -1,13 +1,13 @@
 #include <iostream>
 #include "2_52.h"
 
-void doubleRev(LinkedList& list, LNode* p)
+void doubleRev(LinkedList<int>& list, LNode<int>* p)
 {
-	LNode* mov = list->next; 
-	LNode* newNode = nullptr; 
+	LNode<int>* mov = list->next;
+	LNode<int>* newNode = nullptr;
 
 	while (mov != p) {
-		newNode = new LNode(mov->data, p->next); 
+		newNode = new LNode<int>(mov->data, p->next);
 		p->next = newNode; 
 		mov = mov->next; 
 	}

@@ -1,7 +1,7 @@
 #include <iostream>
 #include "2_53.h"
 
-void printInv(const LinkedList list)
+void printInv(const LinkedList<int> list)
 {
 	if (list->next != nullptr) {
 		printInv(list->next);

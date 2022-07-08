@@ -1,42 +1,34 @@
 #include <iostream>
 #include <vector>
-#include "2_63.h"
+#include "2_65.h"
 
 using std::cout; 
 using std::endl; 
 using std::vector; 
 
-#ifndef DS_2_
-#define DS_2_
+#ifdef DS_LINKEDLIST_H_
+	template <typename DataType, typename ListNodeType>
+	static ListNodeType* createSingleList(vector<DataType> initData, bool hasHead = true, bool isCyclic = false); 
 
-#if 0
-	#define LLIST
-	template <typename DataType>
-	static LinkedList createList(vector<DataType> initData, bool hasHead = true, bool isCyclic = false); 
-#endif
-#if 1
-	#define DLIST
-	template <typename DataType>
-	static DList createList(vector<DataType> initData); 
-#endif
-
+	template <typename DataType, typename ListNodeType>
+	static ListNodeType* createDoubleList(vector<DataType> initData, bool hasHead = true, bool isCyclic = false); 
 #endif
 
 int main(void)
 {
-#ifdef DS_2_
+#if 1
 	#define APPEND(elem) \
 		do {\
-			temp = new LNode(elem); \
+			temp = new LNode<int>(elem); \
 			rear->next = temp; \
 			rear = temp; \
 		} while (0)
 
 	#ifdef DS_2_1_H_
-		LNode end = { 3, nullptr }; 
-		LNode node = { 2, &end }; 
-		LNode list = { 0, &node };
-		if (findInvK(&list, 3) == 0) {
+		LNode<int> end = { 3, nullptr }; 
+		LNode<int> node = { 2, &end };
+		LNode<int> list = { 0, &node };
+		if (findInvK(&list, 2) == 0) {
 			cout << "Target not found. " << endl; 
 		}
 	#endif
@@ -90,52 +82,24 @@ int main(void)
 
 	#endif
 	#ifdef DS_2_5_H_
-		LinkedList head = new LNode;
-		LNode* rear = head; 
-		LNode* temp;
-
-		APPEND(10);
-		APPEND(19);
-		APPEND(-15);
-		APPEND(1);
-		APPEND(15);
-		APPEND(19);
-		APPEND(-10);
-		APPEND(2);
-		APPEND(5);
-		APPEND(15);
+		LinkedList<int> head = createSingleList<int, LNode<int>>({ 10, 19, -15, 1, 15, 19, -10, 2, 5, 15 }); 
 
 		delDup(head, 20); 
 
-		LNode* mov = head->link; 
+		LNode<int>* mov = head->next;
 		while (mov != nullptr) {
 			cout << mov->data << ' '; 
-			mov = mov->link; 
+			mov = mov->next; 
 		}
 		cout << endl; 
 	#endif
 	#ifdef DS_2_6_H_
-		LinkedList A = new LNode;
-		LNode* rear = A;
-		LNode* temp;
+		LinkedList<int> A = createSingleList<int, LNode<int>>({ 1, 3, 5, 6, 8, 10 }); 
 
-		APPEND(1);
-		APPEND(3);
-		APPEND(5);
-		APPEND(6);
-		APPEND(8);
-		APPEND(10);
+		LinkedList<int> B = createSingleList<int, LNode<int>>({ 2, 4, 7, 9 }); 
 
-		LinkedList B = new LNode;
-		rear = B;
-
-		APPEND(2);
-		APPEND(4);
-		APPEND(7);
-		APPEND(9);
-
-		LinkedList C = reverseMerge(A, B);
-		LNode* mov = C->next;
+		LinkedList<int> C = reverseMerge(A, B);
+		LNode<int>* mov = C->next;
 		while (mov != nullptr) {
 			cout << mov->data << ' ';
 			mov = mov->next;
@@ -143,28 +107,12 @@ int main(void)
 		cout << endl;
 	#endif
 	#ifdef DS_2_10_H_
-		LinkedList A = new LNode;
-		LNode* rear = A;
-		LNode* temp;
+		LinkedList<int> A = createSingleList<int, LNode<int>>({ 1, 3, 5, 6, 8, 10, 11 });
 
-		APPEND(1);
-		APPEND(3);
-		APPEND(5);
-		APPEND(6);
-		APPEND(8);
-		APPEND(10);
-		APPEND(11);
+		LinkedList<int> B = createSingleList<int, LNode<int>>({ 2, 5, 7, 10 });
 
-		LinkedList B = new LNode;
-		rear = B;
-
-		APPEND(2);
-		APPEND(5);
-		APPEND(7);
-		APPEND(10);
-
-		LinkedList C = unionSet(A, B);
-		LNode* mov = C->next;
+		LinkedList<int> C = unionSet(A, B);
+		LNode<int>* mov = C->next;
 		while (mov != nullptr) {
 			cout << mov->data << ' ';
 			mov = mov->next;
@@ -172,12 +120,12 @@ int main(void)
 		cout << endl;
 	#endif
 	#ifdef DS_2_16_H_
-		LinkedList A = createList<int>({ 1, 3, 5, 6, 8, 10, 11 }, true, true); 
+		LinkedList<int> A = createSingleList<int, LNode<int>>({ 1, 3, 5, 6, 8, 10, 11 }, true, true);
 
-		LinkedList B = createList<int>({ 2, 5, 7, 10 }, true, true); 
+		LinkedList<int> B = createSingleList<int, LNode<int>>({ 2, 5, 7, 10 }, true, true);
 
-		LinkedList list = mergeList(A, 7, B, 4); 
-		LNode* mov = list->next; 
+		LinkedList<int> list = mergeList(A, 7, B, 4);
+		LNode<int>* mov = list->next;
 		while (mov != list) {
 			cout << mov->data << ' '; 
 			mov = mov->next; 
@@ -215,13 +163,13 @@ int main(void)
 		cout << endl; 
 	#endif
 	#ifdef DS_2_45_H_
-		LinkedList A = createList<char>({ 'a', 'b', 'c', 'a', 'b', 'a', 'b', 'c', 'b', 'c' }); 
+		LinkedList<char> A = createSingleList<char, LNode<char>>({ 'a', 'b', 'c', 'a', 'b', 'a', 'b', 'c', 'b', 'c' }); 
 
-		LinkedList B = createList<char>({ 'a', 'b', 'c' }); 
+		LinkedList<char> B = createSingleList<char, LNode<char>>({ 'a', 'b', 'c' }); 
 
 		revSub(A, B); 
 
-		LNode* mov = A->next; 
+		LNode<char>* mov = A->next;
 		while (mov != nullptr) {
 			cout << mov->data << ' '; 
 			mov = mov->next; 
@@ -252,16 +200,16 @@ int main(void)
 		cout << mov->data << endl; 
 	#endif
 	#ifdef DS_2_52_H_
-		LinkedList A = createList<int>({ 1, 3, 5, 6, 8, 10, 11 }, true, true);
+		LinkedList<int> A = createSingleList<int, LNode<int>>({ 1, 3, 5, 6, 8, 10, 11 }, true, true);
 
-		LNode* rear = A->next; 
+		LNode<int>* rear = A->next;
 		while (rear->next != A) {
 			rear = rear->next; 
 		}
 
 		doubleRev(A, rear); 
 
-		LNode* mov = A->next;
+		LNode<int>* mov = A->next;
 		while (mov != A) {
 			cout << mov->data << ' ';
 			mov = mov->next;
@@ -269,7 +217,7 @@ int main(void)
 		cout << endl;
 	#endif 
 	#ifdef DS_2_53_H_
-		LinkedList A = createList<int>({ 1, 3, 5, 6, 8, 10, 11 }, false);
+		LinkedList<int> A = createSingleList<int, LNode<int>>({ 1, 3, 5, 6, 8, 10, 11 }, false);
 
 		printInv(A); 
 	#endif
@@ -290,8 +238,8 @@ int main(void)
 				PRINT(L); \
 			} while (0)
 
-		DList L = createList<int>({ 1,3,5,6,8,10,11 }); 
-		DNode* mov = nullptr; 
+		DFList<int> L = createDoubleList<int, DFNode<int>>({ 1, 3, 5, 6, 8, 10, 11 }, true, false);
+		DFNode<int>* mov = nullptr;
 		PRINT(L); 
 
 		FIND(L, 8);
@@ -307,50 +255,60 @@ int main(void)
 		FIND(L, 11);
 		FIND(L, 1);
 	#endif
+	#ifdef DS_2_65_H_
+		DList<bool> binum = createBinum(); 
+		incBinum(binum); 
+	#endif
 #endif
 
 	return 0; 
 }
 
-#if defined DS_2_ 
-	#if defined LLIST
-	template <typename DataType>
-	static LinkedList createList(vector<DataType> initData, bool hasHead, bool isCyclic)
+#if defined DS_LINKEDLIST_H_
+	template <typename DataType, typename ListNodeType>
+	static ListNodeType* createSingleList(vector<DataType> initData, bool hasHead, bool isCyclic)
 	{
-		LinkedList list = new LNode; 
-		LNode* newNode = nullptr; 
+		ListNodeType* list = new ListNodeType;
+		ListNodeType* newNode = nullptr;
 
 		if (!hasHead) {
 			list->data = initData.at(0); 
 		}
 		if (isCyclic) {
-			list->next = list; 
+			list->next = list;
 		}
 
 		for (size_t index = 0; index < ((hasHead) ? initData.size() : initData.size() - 1); ++index) {
-			newNode = new LNode(initData.at(initData.size() - 1 - index), list->next);
+			newNode = new ListNodeType(initData.at(initData.size() - 1 - index), list->next);
 			list->next = newNode; 
 		}
 
 		return list; 
 	}
-	#endif
-	#if defined DLIST
-	template <typename DataType>
-	static DList createList(vector<DataType> initData)
-	{
-		DList list = new DNode;
-		DNode* newNode = nullptr;
 
-		for (size_t index = 0; index < initData.size(); ++index) {
-			newNode = new DNode(initData.at(initData.size() - 1 - index), list->next, list);
-			if (list->next != nullptr) {
-				list->next->pred = newNode;
+	template <typename DataType, typename ListNodeType>
+	static ListNodeType* createDoubleList(vector<DataType> initData, bool hasHead, bool isCyclic)
+	{
+		ListNodeType* list = new ListNodeType;
+		ListNodeType* newNode = nullptr;
+
+		if (!hasHead) {
+			list->data = initData.at(0);
+		}
+		if (isCyclic) {
+			list->next = list;
+			list->pred = list;
+		}
+
+		for (size_t index = 0; index < ((hasHead) ? initData.size() : initData.size() - 1); ++index) {
+			newNode = new ListNodeType(initData.at(initData.size() - 1 - index), list->next);
+			list->next = newNode;
+			newNode->pred = list;
+			if (newNode->next != nullptr) {
+				newNode->next->pred = newNode;
 			}
-			list->next = newNode; 
 		}
 
 		return list;
 	}
-	#endif
 #endif

@@ -1,12 +1,12 @@
 #include <iostream>
 #include "2_63.h"
 
-DNode* find(DList& L, int x)
+DFNode<int>* find(DFList<int>& L, int x)
 {
 	L->freq = UINT_MAX; 
 
 	/* find node */
-	DNode* result = L->next; 
+	DFNode<int>* result = L->next;
 	while (result != nullptr && result->data != x) {
 		result = result->next; 
 	}
@@ -17,7 +17,7 @@ DNode* find(DList& L, int x)
 
 	/* search new pos */
 	++result->freq; 
-	DNode* mov = result->pred; 
+	DFNode<int>* mov = result->pred;
 	while (mov->freq < result->freq) {
 		mov = mov->pred; 
 	}

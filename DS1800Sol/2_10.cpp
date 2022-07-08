@@ -7,12 +7,12 @@
 #include <iostream>
 #include "2_10.h"
 
-LinkedList unionSet(LinkedList ha, LinkedList hb)
+LinkedList<int> unionSet(LinkedList<int> ha, LinkedList<int> hb)
 {
-	LNode* movA = ha->next; 
-	LNode* movB = hb->next; 
+	LNode<int>* movA = ha->next;
+	LNode<int>* movB = hb->next;
 	ha->next = nullptr; 
-	LNode* cache = ha; 
+	LNode<int>* cache = ha;
 
 	while (movA != nullptr && movB != nullptr) {
 		if (movA->data > movB->data) {

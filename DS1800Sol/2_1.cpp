@@ -6,7 +6,7 @@
 #include <iostream>
 #include "2_1.h"
 
-int findInvK(LinkedList list, size_t k)
+int findInvK(LinkedList<int> list, size_t k)
 {
 	if (k == 0) {
 		return 0; 
@@ -14,8 +14,8 @@ int findInvK(LinkedList list, size_t k)
 
 	size_t diff = 0; // distance between pointers; 
 	/* set probes */
-	LNode* head = list->link; 
-	LNode* tail = list->link; 
+	LNode<int>* head = list->next;
+	LNode<int>* tail = list->next;
 
 	/* get length */
 	while (diff != k) {
@@ -25,13 +25,13 @@ int findInvK(LinkedList list, size_t k)
 		}
 
 		++diff;
-		head = head->link; 
+		head = head->next;
 	}
 
 	/* find target */
 	while (head != nullptr) {
-		head = head->link; 
-		tail = tail->link; 
+		head = head->next;
+		tail = tail->next;
 	}
 	std::cout << tail->data << std::endl;
 

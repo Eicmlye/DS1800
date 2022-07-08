@@ -7,11 +7,11 @@
 #include <iostream>
 #include "2_16.h"
 
-LinkedList mergeList(LinkedList L1, size_t m, LinkedList L2, size_t n)
+LinkedList<int> mergeList(LinkedList<int> L1, size_t m, LinkedList<int> L2, size_t n)
 {
-	LNode* origin = (m >= n) ? L2 : L1; 
-	LNode* mov = (m >= n) ? L2->next : L1->next; 
-	LNode* target = (m >= n) ? L1 : L2; 
+	LNode<int>* origin = (m >= n) ? L2 : L1;
+	LNode<int>* mov = (m >= n) ? L2->next : L1->next;
+	LNode<int>* target = (m >= n) ? L1 : L2;
 	if (mov == mov->next) { /* for empty list */
 		return target; 
 	}

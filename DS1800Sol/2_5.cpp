@@ -12,26 +12,26 @@
 #include <iostream>
 #include "2_5.h"
 
-void delDup(LinkedList head, size_t n)
+void delDup(LinkedList<int> head, size_t n)
 {
 	bool* flag = new bool[n]; // set existence flags; 
 	memset(flag, 0, sizeof(bool) * n); // initialize flags to false; 
 
-	LNode* mov = head->link; 
-	LNode* pred = head; 
+	LNode<int>* mov = head->next;
+	LNode<int>* pred = head;
 	while (mov != nullptr) { // traverse list; 
 		size_t index = abs(mov->data); 
 
 		if (!flag[index]) { // if first met; 
 			flag[index] = true; 
-			pred = pred->link; 
+			pred = pred->next;
 		}
 		else { // if have met before; 
-			pred->link = mov->link; 
+			pred->next = mov->next;
 			delete mov; 
 		}
 
-		mov = pred->link;
+		mov = pred->next;
 	}
 
 	delete[] flag;

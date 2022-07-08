@@ -8,10 +8,10 @@
 #include <iostream>
 #include "2_51.h"
 
-void revCyc(LinkedList& list, unsigned int mode)
+void revCyc(LinkedList<int>& list, unsigned int mode)
 {
-	LNode* pivot = list->next; // rear of the reversed list; 
-	LNode* cache = pivot->next; 
+	LNode<int>* pivot = list->next; // rear of the reversed list; 
+	LNode<int>* cache = pivot->next;
 
 	/*
 		mode 0: 

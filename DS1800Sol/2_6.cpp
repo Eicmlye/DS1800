@@ -7,12 +7,12 @@
 #include <iostream>
 #include "2_6.h"
 
-LinkedList reverseMerge(LinkedList A, LinkedList B)
+LinkedList<int> reverseMerge(LinkedList<int> A, LinkedList<int> B)
 {
-	LNode* movA = A->next; 
-	LNode* movB = B->next; 
+	LNode<int>* movA = A->next;
+	LNode<int>* movB = B->next;
 	A->next = nullptr; 
-	LNode* cache = A->next; 
+	LNode<int>* cache = A->next;
 
 	while (movA != nullptr && movB != nullptr) {
 		cache = A->next; 

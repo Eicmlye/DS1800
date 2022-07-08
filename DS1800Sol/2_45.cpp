@@ -7,7 +7,7 @@
 #include <iostream>
 #include "2_45.h"
 
-void revSub(LinkedList& list, LinkedList& sub)
+void revSub(LinkedList<char>& list, LinkedList<char>& sub)
 {
 	if (list->next == nullptr || list->next->next == nullptr) {
 		return;
@@ -16,11 +16,11 @@ void revSub(LinkedList& list, LinkedList& sub)
 		return;
 	}
 
-	LNode* subhead = list; // header of sublist; 
-	LNode* pred = list; // pred of mov; 
-	LNode* mov = pred->next; // probe on list; 
-	LNode* submov = sub->next; // probe on sub; 
-	LNode* nextmov = list; // pivot for end of reverse; 
+	LNode<char>* subhead = list; // header of sublist; 
+	LNode<char>* pred = list; // pred of mov; 
+	LNode<char>* mov = pred->next; // probe on list; 
+	LNode<char>* submov = sub->next; // probe on sub; 
+	LNode<char>* nextmov = list; // pivot for end of reverse; 
 
 	while (mov != nullptr) {
 		/* check sublist */
