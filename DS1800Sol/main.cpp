@@ -1,12 +1,15 @@
 #include <iostream>
-#include <vector>
-#include "chpt_3/3_8.h"
+#include "chpt_3/chpt_tag.h"
+#include "chpt_3/3_9.h"
 
 using std::cout;
 using std::endl;
-using std::vector;
 
 #ifdef DS_LINKEDLIST_H_
+
+#include <vector>
+using std::vector;
+
 template <typename DataType, typename ListNodeType>
 static ListNodeType* createSingleList(vector<DataType> initData, bool hasHead = true, bool isCyclic = false);
 
@@ -16,8 +19,7 @@ static ListNodeType* createDoubleList(vector<DataType> initData, bool hasHead = 
 
 int main(void)
 {
-	/* chpt 2 */
-	#if 1
+	#ifdef DS_2_H_
 		#ifdef DS_2_1_H_
 			LNode<int> end = { 3, nullptr };
 			LNode<int> node = { 2, &end };
@@ -262,8 +264,7 @@ int main(void)
 		#endif
 	#endif
 
-	/* chpt 3 */
-	#if 1
+	#ifdef DS_3_H_
 		#ifdef DS_3_1_H_
 			#define PRINTSTK(stk) \
 				do {\
@@ -324,7 +325,12 @@ int main(void)
 			cout << findMax(arr, n) << endl; 
 		#endif
 		#ifdef DS_3_8_H_
-
+			cout << Euclid(24, 30) << endl;
+			cout << recEuclid(24, 30) << endl;
+		#endif
+		#ifdef DS_3_9_H_
+			cout << Ack(3, 3) << ", "; 
+			cout << recAck(3, 3) << endl;
 		#endif
 	#endif
 
