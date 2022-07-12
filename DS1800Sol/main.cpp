@@ -1,6 +1,6 @@
 #include <iostream>
 #include "chpt_3/chpt_tag.h"
-#include "chpt_3/3_9.h"
+#include "chpt_3/3_10.h"
 
 using std::cout;
 using std::endl;
@@ -331,6 +331,13 @@ int main(void)
 		#ifdef DS_3_9_H_
 			cout << Ack(3, 3) << ", "; 
 			cout << recAck(3, 3) << endl;
+		#endif
+		#ifdef DS_3_10_H_
+			size_t k = 3; 
+			size_t* arr = new size_t[k];
+			recPrintCombination(1, 5, k, arr, 0);
+			cout << "--------" << endl; 
+			printCombination(5, 3); 
 		#endif
 	#endif
 
