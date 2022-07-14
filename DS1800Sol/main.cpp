@@ -1,6 +1,6 @@
 #include <iostream>
 #include "chpt_3/chpt_tag.h"
-#include "chpt_3/3_10.h"
+#include "chpt_3/3_15.h"
 
 using std::cout;
 using std::endl;
@@ -338,6 +338,69 @@ int main(void)
 			recPrintCombination(1, 5, k, arr, 0);
 			cout << "--------" << endl; 
 			printCombination(5, 3); 
+		#endif
+		#ifdef DS_3_12_H_
+			cout << F(13) << ", " << recF(13) << endl;
+		#endif
+		#ifdef DS_3_14_H_
+			size_t size = 3; 
+			int* rem = new int[size]; 
+			if (rem == nullptr) {
+				return 0;
+			}
+			for (size_t index = 0; index < size; ++index) {
+				rem[index] = (int)index + 1; 
+			}
+
+			bool* flag = new bool[size];
+			if (flag == nullptr) {
+				return 0;
+			}
+			for (size_t index = 0; index < size; ++index) {
+				flag[index] = true;
+			}
+
+			int* arr = new int[size]; 
+			if (arr == nullptr) {
+				return 0; 
+			}
+			for (size_t index = 0; index < size; ++index) {
+				arr[index] = 0;
+			}
+
+			recPermu(rem, flag, size, arr, 0);
+		#endif
+		#ifdef DS_3_15_H_
+			size_t size = 5; 
+			DStkQue que(size);
+			for (size_t index = 0; index < 2 * size; ++index) {
+				enqueue(que, (int)index + 1);
+			}
+			// enqueue(que, 11); // test for full queue push; 
+
+			int cache = 0;
+			for (size_t index = 0; index < 2 * size; ++index) {
+				dequeue(que, cache);
+				cout << cache << ' ';
+			}
+			// dequeue(que, cache); // test for empty queue pop; 
+			cout << endl;
+
+			for (size_t index = 0; index < size - 2; ++index) {
+				enqueue(que, (int)index + 1);
+			}
+			dequeue(que, cache);
+			cout << cache << ' ';// now que should allow only 5 elements to be pushed in; 
+			for (size_t index = 0; index < size; ++index) {
+				enqueue(que, (int)index + 21);
+			}
+			// enqueue(que, 11); // test for full queue push; 
+			for (size_t index = 0; index < size + 2; ++index) {
+				dequeue(que, cache);
+				cout << cache << ' ';
+			}
+			cout << endl;
+
 		#endif
 	#endif
 
