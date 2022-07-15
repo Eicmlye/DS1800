@@ -1,6 +1,6 @@
 #include <iostream>
-#include "chpt_3/chpt_tag.h"
-#include "chpt_3/3_15.h"
+#include "chpt_4/chpt_tag.h"
+#include "chpt_4/4_2.h"
 
 using std::cout;
 using std::endl;
@@ -400,6 +400,19 @@ int main(void)
 				cout << cache << ' ';
 			}
 			cout << endl;
+
+		#endif
+	#endif
+
+	#ifdef DS_4_H_
+		#ifdef DS_4_1_H_
+			cout << isSubStr("I\'m Eric hello:)", "m Eri", 16, 5) << endl; 
+		#endif
+		#ifdef DS_4_2_H_
+			size_t* arr = nullptr; 
+			cout << getInt("7fd078w978dw7989f", arr) << endl;
+		#endif
+		#ifdef 
 
 		#endif
 	#endif
