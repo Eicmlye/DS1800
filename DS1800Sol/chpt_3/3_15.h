@@ -1,6 +1,8 @@
 #ifndef DS_3_15_H_
 #define DS_3_15_H_
 
+#include "chpt_tag.h"
+
 #include <iostream>
 
 struct Stack {

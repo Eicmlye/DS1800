@@ -1,6 +1,7 @@
+#define _CRT_SECURE_NO_WARNINGS
+
 #include <iostream>
-#include "chpt_4/chpt_tag.h"
-#include "chpt_4/4_2.h"
+#include "chpt_4/4_9.h"
 
 using std::cout;
 using std::endl;
@@ -412,8 +413,13 @@ int main(void)
 			size_t* arr = nullptr; 
 			cout << getInt("7fd078w978dw7989f", arr) << endl;
 		#endif
-		#ifdef 
-
+		#ifdef DS_4_7_H_
+			cout << std::boolalpha; 
+			cout << (392058 == my_atoi("392058")) << endl;
+			cout << (-392058 == my_atoi("-392058")) << endl;
+		#endif
+		#ifdef DS_4_9_H_
+			freqToFile("F9A0JRGIRJ3GFNGEAUG38043RJA"); 
 		#endif
 	#endif
 

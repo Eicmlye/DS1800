@@ -1,6 +1,8 @@
 #ifndef DS_3_1_H_
 #define DS_3_1_H_
 
+#include "chpt_tag.h"
+
 struct SeqStk {
 	int* head;
 	size_t maxsize;
