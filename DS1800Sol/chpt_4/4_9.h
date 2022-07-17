@@ -5,6 +5,6 @@
 
 #include "chpt_tag.h"
 
-void freqToFile(const char* str, const char* filename = "./userdata/freq.log");
+void freqToFile(const char* str, const char* filename = "./userdata/4_9.log");
 
 #endif

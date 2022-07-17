@@ -1,7 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 
 #include <iostream>
-#include "chpt_4/4_9.h"
+#include "chpt_4/4_16.h"
 
 using std::cout;
 using std::endl;
@@ -420,6 +420,12 @@ int main(void)
 		#endif
 		#ifdef DS_4_9_H_
 			freqToFile("F9A0JRGIRJ3GFNGEAUG38043RJA"); 
+		#endif
+		#ifdef DS_4_12_H_
+			cout << remakeStr() << endl;
+		#endif
+		#ifdef DS_4_16_H_
+			cout << std::boolalpha << isPattern() << endl;
 		#endif
 	#endif
 
