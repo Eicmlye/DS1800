@@ -1,7 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 
 #include <iostream>
-#include "chpt_4/4_16.h"
+#include "chpt_5/5_8.h"
 
 using std::cout;
 using std::endl;
@@ -426,6 +426,113 @@ int main(void)
 		#endif
 		#ifdef DS_4_16_H_
 			cout << std::boolalpha << isPattern() << endl;
+		#endif
+	#endif
+
+	#ifdef DS_5_H_
+		#ifdef DS_5_3_H_
+			int A[5] = { 1, 2, 3, 4, 5 }; 
+			int cache[5] = { 0, 0, 0, 0, 0 }; 
+			recCombination(A, 5, cache, 0, 4); 
+		#endif
+		#ifdef DS_5_4_H_
+			size_t n = 5; 
+			int** mat = new int* [n]; 
+			if (mat == nullptr) {
+				throw std::bad_alloc(); 
+			}
+			int* cache = nullptr; 
+			int sample[5][5] =
+			{
+				{ 1, 9, 4, 5, 6 },
+				{ 4, 2, -5, 11, 6 },
+				{ -1, 5, 4, 9, -5 },
+				{ 3, 8, 5, 7, 10 },
+				{ 0, 2, 5, 9, 3 }
+			};
+
+			for (size_t index = 0; index < n; ++index) {
+				cache = new int[n];
+				for (size_t jndex = 0; jndex < n; ++jndex) {
+					cache[jndex] = sample[index][jndex]; 
+				}
+				mat[index] = cache; 
+			}
+
+			sortRowAvg(mat, n);
+
+			for (size_t index = 0; index < n; ++index) {
+				for (size_t jndex = 0; jndex < n; ++jndex) {
+					cout << mat[index][jndex] << '\t';
+				}
+				cout << endl; 
+			}
+
+			for (size_t index = 0; index < n; ++index) {
+				delete[] mat[index]; 
+			}
+			delete[] mat; 
+		#endif
+		#ifdef DS_5_5_H_
+			size_t n = 5;
+			int** mat = new int* [n];
+			if (mat == nullptr) {
+				throw std::bad_alloc();
+			}
+			int* cache = nullptr;
+			int sample[5][5] =
+			{
+				{ 10, 13, 17, 20, 21 },
+				{ 4, 2, -5, 11, 6 },
+				{ -1, 5, 4, 9, -5 },
+				{ 3, 8, 5, 7, 10 },
+				{ 0, 2, 5, 9, 3 }
+			};
+
+			for (size_t index = 0; index < n; ++index) {
+				cache = new int[n];
+				for (size_t jndex = 0; jndex < n; ++jndex) {
+					cache[jndex] = sample[index][jndex];
+				}
+				mat[index] = cache;
+			}
+
+			findSaddlePoint(mat, 5, 5);
+
+			for (size_t index = 0; index < n; ++index) {
+				delete[] mat[index];
+			}
+			delete[] mat;
+		#endif
+		#ifdef DS_5_8_H_
+			size_t n = 5;
+			int** mat = new int* [n];
+			if (mat == nullptr) {
+				throw std::bad_alloc();
+			}
+			int* cache = nullptr;
+
+			for (size_t index = 0; index < n; ++index) {
+				cache = new int[n];
+				for (size_t jndex = 0; jndex < n; ++jndex) {
+					cache[jndex] = 0;
+				}
+				mat[index] = cache;
+			}
+
+			fillSquare(mat, 5);
+
+			for (size_t index = 0; index < n; ++index) {
+				for (size_t jndex = 0; jndex < n; ++jndex) {
+					cout << mat[index][jndex] << '\t'; 
+				}
+				cout << endl; 
+			}
+
+			for (size_t index = 0; index < n; ++index) {
+				delete[] mat[index];
+			}
+			delete[] mat;
 		#endif
 	#endif
 
