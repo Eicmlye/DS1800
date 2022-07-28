@@ -1,7 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 
 #include <iostream>
-#include "chpt_5/5_8.h"
+#include "chpt_5/5_11.h"
 
 using std::cout;
 using std::endl;
@@ -533,6 +533,14 @@ int main(void)
 				delete[] mat[index];
 			}
 			delete[] mat;
+		#endif
+		#ifdef DS_5_11_H_
+			int A[10] = { -2,1,2,0,9,5,3,8,4,6 }; 
+			evenToFront(A, 10); 
+			for (size_t index = 0; index < 10; ++index) {
+				cout << A[index] << ' ';
+			}
+			cout << endl;
 		#endif
 	#endif
 
