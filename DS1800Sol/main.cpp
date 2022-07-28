@@ -1,7 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 
 #include <iostream>
-#include "chpt_5/5_11.h"
+#include "chpt_5/5_12.h"
 
 using std::cout;
 using std::endl;
@@ -541,6 +541,13 @@ int main(void)
 				cout << A[index] << ' ';
 			}
 			cout << endl;
+		#endif
+		#ifdef DS_5_12_H_
+
+		#endif
+		#ifdef DS_5_14_H_
+			GLList sample = nullptr; 
+			sample = build(); 
 		#endif
 	#endif
 
