@@ -3,6 +3,6 @@
 
 #include "chpt_tag.h"
 
-void getPowerSet(int* S, size_t n, int** P); 
+size_t recPowerSet(char* A, size_t n, char* cur, size_t len, size_t ind, char** P, size_t size);
 
 #endif
