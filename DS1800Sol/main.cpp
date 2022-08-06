@@ -2,7 +2,7 @@
 
 #include <iostream>
 // #include "test.h"
-#include "chpt_5/5_16.h"
+#include "chpt_5/5_21.h"
 
 using std::cout;
 using std::endl;
@@ -593,6 +593,18 @@ using std::endl;
 					cout << rear[index] << ' ';
 				}
 				cout << endl; 
+			#endif
+			#ifdef DS_5_18_H_
+				int A[5] = { 1, 2, 3, 4, 5 }; 
+				size_t B[5] = { 1, 3, 5, 4, 2 }; 
+				reorder(A, B, 5); 
+				for (size_t index = 0; index < 5; ++index) {
+					cout << A[index] << ' '; 
+				}
+				cout << endl; 
+			#endif
+			#ifdef DS_5_21_H_
+
 			#endif
 		#endif
 
