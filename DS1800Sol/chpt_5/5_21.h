@@ -4,16 +4,13 @@
 #include "chpt_tag.h"
 
 struct MatNode {
-	size_t row; 
-	size_t col; 
-	int data; 
-	MatNode* next; 
+	size_t row_ = 0;
+	size_t col_ = 0;
+	int data_ = 0;
 };
 
-struct Matrix {
-	MatNode* head; 
-};
+using Matrix = MatNode*; // no header node; 
 
-void fastTSpMat(Matrix mat); 
+Matrix fastTSpMat(Matrix mat, size_t n, size_t t); 
 
 #endif
