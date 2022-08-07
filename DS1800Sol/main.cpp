@@ -604,7 +604,20 @@ using std::endl;
 				cout << endl; 
 			#endif
 			#ifdef DS_5_21_H_
-
+				MatNode mat[5] = {
+					{ 1, 2, 1 },
+					{ 1, 3, 2 },
+					{ 2, 2, 3 },
+					{ 3, 1, 4 },
+					{ 4, 2, 5 }
+				}; 
+				Matrix result = fastTSpMat(mat, 3, 5); 
+				for (size_t index = 0; index < 5; ++index) {
+					cout << result[index].row_ << ' ';
+					cout << result[index].col_ << ' ';
+					cout << result[index].data_ << ' ';
+					cout << endl; 
+				}
 			#endif
 		#endif
 
