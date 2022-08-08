@@ -1,8 +1,8 @@
 #define _CRT_SECURE_NO_WARNINGS
 
 #include <iostream>
-// #include "test.h"
-#include "chpt_5/5_21.h"
+#include "test.h"
+// #include "chpt_6/6_1.h"
 
 using std::cout;
 using std::endl;
@@ -621,6 +621,12 @@ using std::endl;
 			#endif
 		#endif
 
+		#ifdef DS_6_H_
+			#ifdef DS_6_1_H_
+
+			#endif
+		#endif
+
 		return 0;
 	}
 
@@ -675,55 +681,7 @@ using std::endl;
 #else
 	int main(void)
 	{
-		#if DS_TEST_H_ == 0
-			size_t size = 0;
-			while (scanf("%zd", &size) == 1) {
-				while (getchar() != '\n') {
-					continue; 
-				}
 
-				char* arr = new char[size + 1];
-				for (size_t index = 0; index < size; ++index) {
-					arr[index] = getchar(); 
-				}
-				arr[size] = '\0';
-				while (getchar() != '\n') {
-					continue;
-				}
-
-				DS_TEST::qksort<char>(arr, size); 
-
-				cout << arr << endl;
-				delete[] arr; 
-			}
-		#endif
-		#if DS_TEST_H_ == 1
-			size_t size = 0;
-			while (scanf("%zd", &size) == 1) {
-				while (getchar() != '\n') {
-					continue;
-				}
-
-				char* arr = new char[size + 1];
-				for (size_t index = 0; index < size; ++index) {
-					arr[index] = getchar();
-				}
-				arr[size] = '\0';
-				while (getchar() != '\n') {
-					continue;
-				}
-
-				size_t heapSize = 0; 
-				if (scanf("%zd", &heapSize) != 1 || heapSize > size) {
-					throw std::bad_alloc(); 
-				}
-
-				DS_TEST::heapSort<char>(arr, size, heapSize);
-
-				cout << arr << endl;
-				delete[] arr;
-			}
-		#endif
 
 		return 0; 
 	}
