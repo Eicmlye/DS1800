@@ -1,8 +1,8 @@
 #define _CRT_SECURE_NO_WARNINGS
 
 #include <iostream>
-#include "test.h"
-// #include "chpt_6/6_1.h"
+// #include "test.h"
+#include "chpt_6/6_3.h"
 
 using std::cout;
 using std::endl;
@@ -623,6 +623,77 @@ using std::endl;
 
 		#ifdef DS_6_H_
 			#ifdef DS_6_1_H_
+				BiTree tree = new TreeNode;
+				TreeNode* rear = tree;
+				TreeNode* temp = nullptr;
+
+				tree->weight = 1; 
+
+				temp = new TreeNode;
+				temp->weight = 2;
+				rear->left = temp;
+
+				temp = new TreeNode;
+				temp->weight = 3;
+				rear->right = temp;
+
+				/*
+				temp = new TreeNode;
+				temp->weight = 4;
+				rear->left->left = temp;
+
+				temp = new TreeNode;
+				temp->weight = 5;
+				rear->left->right = temp;
+				*/
+
+				temp = new TreeNode;
+				temp->weight = 6;
+				rear->right->left = temp;
+
+				temp = new TreeNode;
+				temp->weight = 7;
+				rear->right->right = temp;
+
+				cout << getWPL(tree) << endl; 
+
+			#endif
+			#ifdef DS_6_2_H_
+				BiTree tree = new TreeNode;
+				TreeNode* rear = tree;
+				TreeNode* temp = nullptr;
+
+				tree->data = '+';
+
+				temp = new TreeNode;
+				temp->data = '-';
+				rear->left = temp;
+
+				temp = new TreeNode;
+				temp->data = '*';
+				rear->right = temp;
+
+				///*
+				temp = new TreeNode;
+				temp->data = '1';
+				rear->left->left = temp;
+
+				temp = new TreeNode;
+				temp->data = '2';
+				rear->left->right = temp;
+				//*/
+
+				temp = new TreeNode;
+				temp->data = '3';
+				rear->right->left = temp;
+
+				temp = new TreeNode;
+				temp->data = '4';
+				rear->right->right = temp;
+
+				cout << calculate(tree) << endl;
+			#endif
+			#ifdef DS_6_3_H_
 
 			#endif
 		#endif
