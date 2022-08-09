@@ -9,6 +9,6 @@ typedef struct TreeNode {
 	TreeNode* right = nullptr; 
 } TreeNode, *BiTree;
 
-unsigned int getWPL(BiTree tree, unsigned int WPL = 0); 
+unsigned int getWPL(BiTree tree, unsigned int WPL = 0, unsigned int level = 0); 
 
 #endif
