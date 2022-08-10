@@ -694,14 +694,46 @@ using std::endl;
 				cout << calculate(tree) << endl;
 			#endif
 			#ifdef DS_6_3_H_
+				BiTree tree = new TreeNode;
+				TreeNode* rear = tree;
+				TreeNode* temp = nullptr;
 
+				tree->data = '-';
+
+				temp = new TreeNode;
+				temp->data = '*';
+				rear->left = temp;
+
+				temp = new TreeNode;
+				temp->data = '-';
+				rear->right = temp;
+
+				///*
+				temp = new TreeNode;
+				temp->data = '1';
+				rear->left->left = temp;
+
+				temp = new TreeNode;
+				temp->data = '2';
+				rear->left->right = temp;
+				//*/
+
+				temp = new TreeNode;
+				temp->data = '3';
+				rear->right->left = temp;
+
+				temp = new TreeNode;
+				temp->data = '4';
+				rear->right->right = temp;
+
+				showExpr(tree);
 			#endif
 		#endif
 
 		return 0;
 	}
 
-	#if defined DS_LINKEDLIST_H_
+	#ifdef DS_LINKEDLIST_H_
 		template <typename DataType, typename ListNodeType>
 		static ListNodeType* createSingleList(vector<DataType> initData, bool hasHead, bool isCyclic)
 	{
