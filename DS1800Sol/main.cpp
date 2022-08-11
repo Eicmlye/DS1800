@@ -2,7 +2,7 @@
 
 #include <iostream>
 // #include "test.h"
-#include "chpt_6/6_3.h"
+#include "chpt_6/6_4.h"
 
 using std::cout;
 using std::endl;
@@ -727,6 +727,45 @@ using std::endl;
 				rear->right->right = temp;
 
 				showExpr(tree);
+			#endif
+			#ifdef DS_6_4_H_
+				BiTree tree = new TreeNode;
+				TreeNode* rear = tree;
+				TreeNode* temp = nullptr;
+
+				tree->data = 1;
+
+				temp = new TreeNode;
+				temp->data = 2;
+				rear->left = temp;
+
+				temp = new TreeNode;
+				temp->data = 3;
+				rear->right = temp;
+
+				///*
+				temp = new TreeNode;
+				temp->data = 4;
+				rear->left->left = temp;
+				
+				temp = new TreeNode;
+				temp->data = 5;
+				rear->left->right = temp;
+				//*/
+
+				temp = new TreeNode;
+				temp->data = 6;
+				rear->right->left = temp;
+
+				temp = new TreeNode;
+				temp->data = 7;
+				rear->right->right = temp;
+
+				size_t* result = countNodeDeg(tree);
+				for (size_t index = 0; index < 3; ++index) {
+					cout << result[index] << ' ';
+				}
+				cout << endl; 
 			#endif
 		#endif
 
