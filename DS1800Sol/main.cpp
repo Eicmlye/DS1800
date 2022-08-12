@@ -2,7 +2,7 @@
 
 #include <iostream>
 // #include "test.h"
-#include "chpt_6/6_4.h"
+#include "chpt_6/6_7.h"
 
 using std::cout;
 using std::endl;
@@ -766,6 +766,14 @@ using std::endl;
 					cout << result[index] << ' ';
 				}
 				cout << endl; 
+			#endif
+			#ifdef DS_6_7_H_
+				BiTree tree = nullptr; 
+				while ((tree = buildBiTree()) != nullptr) {
+					cout << "This is "; 
+					isComplete(tree) ? (cout << "") : (cout << "not "); 
+					cout << "a complete binary tree. " << endl;
+				}
 			#endif
 		#endif
 

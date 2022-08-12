@@ -9,7 +9,7 @@ typedef struct TreeNode {
 	TreeNode* right = nullptr;
 } TreeNode, * BiTree;
 
-BiTree buildBiTree(void); 
+BiTree buildBiTree(size_t level = 0); 
 
 bool isComplete(BiTree tree); 
 
