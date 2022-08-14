@@ -2,7 +2,7 @@
 
 #include <iostream>
 // #include "test.h"
-#include "chpt_6/6_7.h"
+#include "chpt_6/6_9.h"
 
 using std::cout;
 using std::endl;
@@ -774,6 +774,15 @@ using std::endl;
 					isComplete(tree) ? (cout << "") : (cout << "not "); 
 					cout << "a complete binary tree. " << endl;
 				}
+			#endif
+			#ifdef DS_6_8_H_
+				int A[8] = { 1, 2, 3, 4, 5, 6, 7, 8 };
+				size_t n = 8;
+				BiTree tree = buildComplTree(A, n);
+			#endif
+			#ifdef DS_6_9_H_
+				BiTree tree = buildBiTree(); 
+				char** result = btree2Arr(tree); 
 			#endif
 		#endif
 
