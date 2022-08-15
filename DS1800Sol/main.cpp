@@ -2,7 +2,7 @@
 
 #include <iostream>
 // #include "test.h"
-#include "chpt_6/6_9.h"
+#include "chpt_6/6_10.h"
 
 using std::cout;
 using std::endl;
@@ -783,6 +783,12 @@ using std::endl;
 			#ifdef DS_6_9_H_
 				BiTree tree = buildBiTree(); 
 				char** result = btree2Arr(tree); 
+			#endif
+			#ifdef DS_6_10_H_
+				BiTree tree = buildBiTree();
+				size_t h = 0; 
+				char** result = btree2Arr(tree, h);
+				BiTree T = levBuildTree(result, h); 
 			#endif
 		#endif
 
