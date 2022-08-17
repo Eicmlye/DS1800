@@ -37,18 +37,103 @@ BiTree buildBiTree(size_t level)
 
 TreeNode* ancestor(BiTree tree, TreeNode* p, TreeNode* q)
 {
+	if (tree == nullptr) {
+		return nullptr; 
+	}
+
+	#define PUSHSTK \
+		do { \
+			top = new stackNode; \
+			top->tnode = mov; \
+			top->next = stk->next; \
+			stk->next = top; \
+		} while (0)
+
 	typedef struct stackNode {
 		TreeNode* tnode = nullptr; 
-		stackNode* next; 
+		stackNode* next = nullptr; 
 	} stackNode, *stack;
 
 	stack stk = new stackNode; // header of stk; 
 	TreeNode* rtag = nullptr; 
 	TreeNode* mov = tree; 
 
-	while (stk->next != nullptr || mov != nullptr) {
+	stackNode* top = nullptr; 
+	
+	stack pstk = new stackNode;
+	stack qstk = new stackNode;
+	stackNode* cachemov = nullptr; 
+	stackNode* cache = nullptr; 
 
+	while (stk->next != nullptr || mov != nullptr) {
+		if (mov != nullptr) {
+			PUSHSTK; 
+			mov = mov->left; 
+		}
+		else {
+			mov = top->tnode;
+			if (mov->right != nullptr && mov->right != rtag) {
+				mov = mov->right; 
+			}
+			else {
+				/* visit node */
+				// inverse the original stack for faster comparison later; 
+				if (pstk->next != nullptr && qstk->next != nullptr) {
+					break;
+				}
+
+				if (mov == p) {
+					cachemov = top; 
+					while (cachemov != nullptr) {
+						cache = new stackNode; 
+						cache->tnode = cachemov->tnode; 
+						cache->next = pstk->next; 
+						pstk->next = cache;
+
+						cachemov = cachemov->next;
+					}
+				}
+				// caution that this should not be elseif, 
+				// as p == q is possible; 
+				if (mov == q) {
+					cachemov = top;
+					while (cachemov != nullptr) {
+						cache = new stackNode;
+						cache->tnode = cachemov->tnode;
+						cache->next = qstk->next;
+						qstk->next = cache;
+
+						cachemov = cachemov->next; 
+					}
+				}
+
+				// update rtag; 
+				rtag = mov; 
+				
+				// pop stk; 
+				stk->next = top->next; 
+				delete top; 
+				top = stk->next; 
+				// enforcing next check to top of stack; 
+				mov = nullptr; 
+			}
+		}
 	}
 
-	return nullptr; 
+	// if p or q does not exist; 
+	if (pstk->next == nullptr || qstk->next == nullptr) {
+		return nullptr;
+	}
+
+	// use top, cache and cachemov as probes; 
+	top = pstk; 
+	cache = pstk->next; 
+	cachemov = qstk->next; 
+	while (cache != nullptr && cachemov != nullptr && (cache->tnode == cachemov->tnode)) {
+		top = top->next; 
+		cache = cache->next; 
+		cachemov = cachemov->next; 
+	}
+
+	return top->tnode; 
 }

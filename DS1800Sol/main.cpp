@@ -792,6 +792,10 @@ using std::endl;
 			#endif
 			#ifdef DS_6_16_H_
 				BiTree result = buildBiTree(); 
+				TreeNode* p = result->left->right; 
+				TreeNode* q = result->left->right; 
+				TreeNode* r = ancestor(result, p, q); 
+				cout << r->data << endl;
 			#endif
 		#endif
 
