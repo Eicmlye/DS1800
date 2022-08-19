@@ -2,7 +2,7 @@
 
 #include <iostream>
 // #include "test.h"
-#include "chpt_6/6_16.h"
+#include "chpt_6/6_39.h"
 
 using std::cout;
 using std::endl;
@@ -796,6 +796,15 @@ using std::endl;
 				TreeNode* q = result->left->right; 
 				TreeNode* r = ancestor(result, p, q); 
 				cout << r->data << endl;
+			#endif
+			#ifdef DS_6_30_H_
+				BiTree tree = buildBiTree(); 
+				preOrdTrav(tree); 
+			#endif
+			#ifdef DS_6_39_H_
+				int pre[11] = { 1, 2, 4, 5, 10, 11, 3, 6, 12, 13, 7 }; 
+				int post[11] = { 4, 10, 11, 5, 2, 12, 13, 6, 7, 3, 1 }; 
+				BiTree tree = buildNormalBiTree(pre, post, 0, 10, 0, 10); 
 			#endif
 		#endif
 
