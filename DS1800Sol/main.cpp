@@ -2,7 +2,7 @@
 
 #include <iostream>
 // #include "test.h"
-#include "chpt_6/6_39.h"
+#include "chpt_6/6_47.h"
 
 using std::cout;
 using std::endl;
@@ -805,6 +805,11 @@ using std::endl;
 				int pre[11] = { 1, 2, 4, 5, 10, 11, 3, 6, 12, 13, 7 }; 
 				int post[11] = { 4, 10, 11, 5, 2, 12, 13, 6, 7, 3, 1 }; 
 				BiTree tree = buildNormalBiTree(pre, post, 0, 10, 0, 10); 
+			#endif
+			#ifdef DS_6_47_H_
+				int pre[11] = { 1, 2, 4, 5, 10, 11, 3, 6, 12, 13, 7 };
+				int in[11] = { 4, 2, 10, 5, 11, 1, 12, 6, 13, 3, 7 };
+				BiTree tree = buildPreInBiTree(pre, in, 0, 10, 0, 10);
 			#endif
 		#endif
 
