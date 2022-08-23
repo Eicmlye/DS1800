@@ -2,7 +2,7 @@
 
 #include <iostream>
 // #include "test.h"
-#include "chpt_6/6_47.h"
+#include "chpt_6/6_48.h"
 
 using std::cout;
 using std::endl;
@@ -810,6 +810,21 @@ using std::endl;
 				int pre[11] = { 1, 2, 4, 5, 10, 11, 3, 6, 12, 13, 7 };
 				int in[11] = { 4, 2, 10, 5, 11, 1, 12, 6, 13, 3, 7 };
 				BiTree tree = buildPreInBiTree(pre, in, 0, 10, 0, 10);
+			#endif
+			#ifdef DS_6_48_H_
+				do {
+					size_t nodeNum = 0;
+					BiTree sample = buildBiTree(nodeNum);
+					int* pre = new int[nodeNum + 1];
+					pre[nodeNum] = '\0'; 
+					preOrdTrav(sample, pre);
+					int* in = new int[nodeNum + 1];
+					in[nodeNum] = '\0';
+					inOrdTrav(sample, in);
+					BiTree tree = buildPreInBiTree(pre, in, nodeNum);
+
+					cout << "Hit ENTER to exit. Enter any non-\'\\n\' character to build a new tree. " << endl << endl; 
+				} while (getchar() != '\n'); 
 			#endif
 		#endif
 
