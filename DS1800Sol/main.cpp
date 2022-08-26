@@ -2,7 +2,7 @@
 
 #include <iostream>
 // #include "test.h"
-#include "chpt_6/6_48.h"
+#include "chpt_6/6_55.h"
 
 using std::cout;
 using std::endl;
@@ -825,6 +825,15 @@ using std::endl;
 
 					cout << "Hit ENTER to exit. Enter any non-\'\\n\' character to build a new tree. " << endl << endl; 
 				} while (getchar() != '\n'); 
+			#endif
+			#ifdef DS_6_53_H_
+				BiTree sample = buildBiTree(); 
+				BiTree copy1 = recCopyBiTree(sample); 
+				BiTree copy2 = copyBiTree(sample); 
+			#endif
+			#ifdef DS_6_55_H_
+				BiTree sample = buildBiTree();
+				connectLeaves(sample); 
 			#endif
 		#endif
 
