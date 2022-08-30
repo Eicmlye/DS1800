@@ -90,27 +90,18 @@ void connectLeaves(BiTree tree)
 			STKPUSH(mov); 
 
 			/* visit node */
+			if (mov->lchild == nullptr && mov->rchild == nullptr) {
+				if (preLeaf != nullptr) {
+					preLeaf->rchild = mov; 
+				}
+				preLeaf = mov; 
+			}
 
 			mov = mov->lchild; 
 		}
 		else {
 			mov = top->tnode; 
 			STKPOP; 
-
-			if (mov->rchild == nullptr) { // meet leaf; 
-				if (preLeaf != nullptr) {
-					preLeaf->rchild = mov;
-				}
-				preLeaf = mov; 
-
-				/* break for trees ending with right leaf */
-				if (top == nullptr) {
-					break; 
-				}
-
-				mov = top->tnode; 
-				STKPOP; 
-			}
 
 			mov = mov->rchild; 
 		}
