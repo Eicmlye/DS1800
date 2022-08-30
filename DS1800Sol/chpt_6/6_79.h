@@ -1,5 +1,5 @@
-#ifndef DS_6_76_H_
-#define DS_6_76_H_
+#ifndef DS_6_79_H_
+#define DS_6_79_H_
 
 #include "chpt_tag.h"
 
@@ -21,6 +21,6 @@ BiTree buildBiTree(size_t level = 1);
 
 ThreadBTree buildInOrdThread(BiTree src);
 
-bool insertInOrdThread(ThreadBTree child, ThreadTNode* parent); 
+void inOrdTrav(ThreadBTree threadTree); 
 
 #endif

@@ -1,12 +1,12 @@
 #define _CRT_SECURE_NO_WARNINGS
 
 #include <iostream>
-#include "6_76.h"
+#include "6_81.h"
 
 BiTree buildBiTree(size_t level)
 {
-	#define CLRSTDIN do { while (getchar() != '\n') { continue; }} while (0)
-	#define INDENT(m_indsize) do { for (size_t index = 0; index < m_indsize; ++index) { std::cout << "    "; }} while (0)
+#define CLRSTDIN do { while (getchar() != '\n') { continue; }} while (0)
+#define INDENT(m_indsize) do { for (size_t index = 0; index < m_indsize; ++index) { std::cout << "    "; }} while (0)
 
 	// Welcome guide;
 	if (level == 1) {
@@ -87,13 +87,13 @@ ThreadBTree buildInOrdThread(BiTree src)
 		ThreadStackNode* next = nullptr;
 	} ThreadStackNode, * ThreadStack;
 
-	#define STKPUSH(m_stk, m_nodeMode, m_topcache, m_tnode) do { m_topcache = new m_nodeMode; m_topcache->tnode = m_tnode; m_topcache->next = m_stk->next; m_stk->next = m_topcache; } while (0)
-	#define SRCSTKPUSH(m_tnode) STKPUSH(stkSrc, stackNode, topSrc, m_tnode)
-	#define TARSTKPUSH(m_tnode) STKPUSH(stkTar, ThreadStackNode, topTar, m_tnode)
+#define STKPUSH(m_stk, m_nodeMode, m_topcache, m_tnode) do { m_topcache = new m_nodeMode; m_topcache->tnode = m_tnode; m_topcache->next = m_stk->next; m_stk->next = m_topcache; } while (0)
+#define SRCSTKPUSH(m_tnode) STKPUSH(stkSrc, stackNode, topSrc, m_tnode)
+#define TARSTKPUSH(m_tnode) STKPUSH(stkTar, ThreadStackNode, topTar, m_tnode)
 
-	#define STKPOP(m_stk, m_topcache) do { m_stk->next = m_topcache->next; delete m_topcache; m_topcache = m_stk->next; } while (0)
-	#define SRCSTKPOP STKPOP(stkSrc, topSrc)
-	#define TARSTKPOP STKPOP(stkTar, topTar)
+#define STKPOP(m_stk, m_topcache) do { m_stk->next = m_topcache->next; delete m_topcache; m_topcache = m_stk->next; } while (0)
+#define SRCSTKPOP STKPOP(stkSrc, topSrc)
+#define TARSTKPOP STKPOP(stkTar, topTar)
 
 	stack stkSrc = new stackNode;
 	stackNode* topSrc = nullptr;
@@ -123,8 +123,8 @@ ThreadBTree buildInOrdThread(BiTree src)
 			}
 		}
 		else {
-			movSrc = topSrc->tnode; 
-			movTar = topTar->tnode; 
+			movSrc = topSrc->tnode;
+			movTar = topTar->tnode;
 
 			// modify threads;
 			if (movTar->ltag) {
@@ -149,45 +149,27 @@ ThreadBTree buildInOrdThread(BiTree src)
 	return result;
 }
 
-bool insertInOrdThread(ThreadBTree child, ThreadTNode* parent)
+/* 利用左子树最右结点的右线索回到根节点 */
+/* 注意：原题是带头结点的树，判定改为 mov != head 即可 */
+void preOrdTrav(ThreadBTree threadTree) 
 {
-	if (parent->ltag) {
-		ThreadTNode* mov = child; 
-		while (!mov->ltag) {
+	ThreadTNode* mov = threadTree; 
+	bool prevTag = false; 
+	while (mov != nullptr) {
+		if (!prevTag) {
+			/* visit node */
+			std::cout << mov->data << ' ';
+		}
+
+		if (!prevTag && !mov->ltag) {
+			prevTag = mov->ltag; 
 			mov = mov->lchild; 
 		}
-		mov->lchild = parent->lchild; 
-
-		mov = child; 
-		while (!mov->rtag) {
+		else {
+			prevTag = mov->rtag; 
 			mov = mov->rchild; 
 		}
-		mov->rchild = parent; 
-
-		parent->lchild = child; 
-		parent->ltag = false; 
-
-		return true; 
 	}
-	else if (parent->rtag) {
-		ThreadTNode* mov = child;
-		while (!mov->ltag) {
-			mov = mov->lchild;
-		}
-		mov->lchild = parent;
 
-		mov = child;
-		while (!mov->rtag) {
-			mov = mov->rchild;
-		}
-		mov->rchild = parent->rchild;
-
-		parent->rchild = child;
-		parent->rtag = false; 
-
-		return true; 
-	}
-	else {
-		return false; 
-	}
+	return; 
 }

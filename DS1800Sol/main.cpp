@@ -2,7 +2,7 @@
 
 #include <iostream>
 // #include "test.h"
-#include "chpt_6/6_76.h"
+#include "chpt_6/6_81.h"
 
 using std::cout;
 using std::endl;
@@ -838,6 +838,19 @@ using std::endl;
 			#ifdef DS_6_76_H_
 				BiTree tree = buildBiTree();
 				ThreadBTree threadTree = buildInOrdThread(tree);
+				tree = buildBiTree(); 
+				ThreadBTree child = buildInOrdThread(tree); 
+				cout << std::boolalpha << insertInOrdThread(child, threadTree->lchild->rchild); 
+			#endif
+			#ifdef DS_6_79_H_
+				BiTree tree = buildBiTree();
+				ThreadBTree threadTree = buildInOrdThread(tree);
+				inOrdTrav(threadTree); 
+			#endif
+			#ifdef DS_6_81_H_
+				BiTree tree = buildBiTree();
+				ThreadBTree threadTree = buildInOrdThread(tree);
+				preOrdTrav(threadTree); 
 			#endif
 			#ifdef DS_6_82_H_
 				BiTree tree = buildBiTree(); 
