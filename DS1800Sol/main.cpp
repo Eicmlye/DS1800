@@ -2,22 +2,21 @@
 
 #include <iostream>
 // #include "test.h"
-#include "chpt_6/6_95.h"
+#include "chpt_10/.h"
 
 using std::cout;
 using std::endl;
 
 #ifndef DS_TEST_H_
 	#ifdef DS_LINKEDLIST_H_
+		#include <vector>
+		using std::vector;
 
-	#include <vector>
-	using std::vector;
+		template <typename DataType, typename ListNodeType>
+		static ListNodeType* createSingleList(vector<DataType> initData, bool hasHead = true, bool isCyclic = false);
 
-	template <typename DataType, typename ListNodeType>
-	static ListNodeType* createSingleList(vector<DataType> initData, bool hasHead = true, bool isCyclic = false);
-
-	template <typename DataType, typename ListNodeType>
-	static ListNodeType* createDoubleList(vector<DataType> initData, bool hasHead = true, bool isCyclic = false);
+		template <typename DataType, typename ListNodeType>
+		static ListNodeType* createDoubleList(vector<DataType> initData, bool hasHead = true, bool isCyclic = false);
 	#endif
 
 	int main(void)
@@ -221,7 +220,7 @@ using std::endl;
 					mov = mov->next;
 				}
 				cout << endl;
-			#endif 
+			#endif
 			#ifdef DS_2_53_H_
 				LinkedList<int> A = createSingleList<int, LNode<int>>({ 1, 3, 5, 6, 8, 10, 11 }, false);
 
@@ -284,9 +283,9 @@ using std::endl;
 						cout << "--------" << endl; \
 					} while (0)
 
-				SeqStk stk(8); 
+				SeqStk stk(8);
 				int cache = -1;
-				PRINTSTK(stk); 
+				PRINTSTK(stk);
 
 				pushStk(stk, 0, 0);
 				pushStk(stk, 0, 1);
@@ -297,7 +296,7 @@ using std::endl;
 				pushStk(stk, 1, 7);
 				pushStk(stk, 1, 6);
 
-				PRINTSTK(stk); 
+				PRINTSTK(stk);
 
 				popStk(stk, 0, cache);
 				popStk(stk, 0, cache);
@@ -316,8 +315,8 @@ using std::endl;
 				cout << (int)EXYX("nafor-d65231)d.v;[eo() )am;e'g(2411)#") << endl;
 			#endif
 			#ifdef DS_3_6_H_
-				size_t n = 7; 
-				int* arr = (int*)malloc(n * sizeof(int)); 
+				size_t n = 7;
+				int* arr = (int*)malloc(n * sizeof(int));
 				int sample[] = {0, 5, 62, -29, 159, 30, 7};
 				if (arr != nullptr) {
 					for (size_t index = 0; index < n; ++index) {
@@ -325,34 +324,34 @@ using std::endl;
 					}
 				}
 
-				cout << findMax(arr, n) << endl; 
+				cout << findMax(arr, n) << endl;
 			#endif
 			#ifdef DS_3_8_H_
 				cout << Euclid(24, 30) << endl;
 				cout << recEuclid(24, 30) << endl;
 			#endif
 			#ifdef DS_3_9_H_
-				cout << Ack(3, 3) << ", "; 
+				cout << Ack(3, 3) << ", ";
 				cout << recAck(3, 3) << endl;
 			#endif
 			#ifdef DS_3_10_H_
-				size_t k = 3; 
+				size_t k = 3;
 				size_t* arr = new size_t[k];
 				recPrintCombination(1, 5, k, arr, 0);
-				cout << "--------" << endl; 
-				printCombination(5, 3); 
+				cout << "--------" << endl;
+				printCombination(5, 3);
 			#endif
 			#ifdef DS_3_12_H_
 				cout << F(13) << ", " << recF(13) << endl;
 			#endif
 			#ifdef DS_3_14_H_
-				size_t size = 3; 
-				int* rem = new int[size]; 
+				size_t size = 3;
+				int* rem = new int[size];
 				if (rem == nullptr) {
 					return 0;
 				}
 				for (size_t index = 0; index < size; ++index) {
-					rem[index] = (int)index + 1; 
+					rem[index] = (int)index + 1;
 				}
 
 				bool* flag = new bool[size];
@@ -363,9 +362,9 @@ using std::endl;
 					flag[index] = true;
 				}
 
-				int* arr = new int[size]; 
+				int* arr = new int[size];
 				if (arr == nullptr) {
-					return 0; 
+					return 0;
 				}
 				for (size_t index = 0; index < size; ++index) {
 					arr[index] = 0;
@@ -374,30 +373,30 @@ using std::endl;
 				recPermu(rem, flag, size, arr, 0);
 			#endif
 			#ifdef DS_3_15_H_
-				size_t size = 5; 
+				size_t size = 5;
 				DStkQue que(size);
 				for (size_t index = 0; index < 2 * size; ++index) {
 					enqueue(que, (int)index + 1);
 				}
-				// enqueue(que, 11); // test for full queue push; 
+				// enqueue(que, 11); // test for full queue push;
 
 				int cache = 0;
 				for (size_t index = 0; index < 2 * size; ++index) {
 					dequeue(que, cache);
 					cout << cache << ' ';
 				}
-				// dequeue(que, cache); // test for empty queue pop; 
+				// dequeue(que, cache); // test for empty queue pop;
 				cout << endl;
 
 				for (size_t index = 0; index < size - 2; ++index) {
 					enqueue(que, (int)index + 1);
 				}
 				dequeue(que, cache);
-				cout << cache << ' ';// now que should allow only 5 elements to be pushed in; 
+				cout << cache << ' ';// now que should allow only 5 elements to be pushed in;
 				for (size_t index = 0; index < size; ++index) {
 					enqueue(que, (int)index + 21);
 				}
-				// enqueue(que, 11); // test for full queue push; 
+				// enqueue(que, 11); // test for full queue push;
 				for (size_t index = 0; index < size + 2; ++index) {
 					dequeue(que, cache);
 					cout << cache << ' ';
@@ -409,19 +408,19 @@ using std::endl;
 
 		#ifdef DS_4_H_
 			#ifdef DS_4_1_H_
-				cout << isSubStr("I\'m Eric hello:)", "m Eri", 16, 5) << endl; 
+				cout << isSubStr("I\'m Eric hello:)", "m Eri", 16, 5) << endl;
 			#endif
 			#ifdef DS_4_2_H_
-				size_t* arr = nullptr; 
+				size_t* arr = nullptr;
 				cout << getInt("7fd078w978dw7989f", arr) << endl;
 			#endif
 			#ifdef DS_4_7_H_
-				cout << std::boolalpha; 
+				cout << std::boolalpha;
 				cout << (392058 == my_atoi("392058")) << endl;
 				cout << (-392058 == my_atoi("-392058")) << endl;
 			#endif
 			#ifdef DS_4_9_H_
-				freqToFile("F9A0JRGIRJ3GFNGEAUG38043RJA"); 
+				freqToFile("F9A0JRGIRJ3GFNGEAUG38043RJA");
 			#endif
 			#ifdef DS_4_12_H_
 				cout << remakeStr() << endl;
@@ -433,17 +432,17 @@ using std::endl;
 
 		#ifdef DS_5_H_
 			#ifdef DS_5_3_H_
-				int A[5] = { 1, 2, 3, 4, 5 }; 
-				int cache[5] = { 0, 0, 0, 0, 0 }; 
-				recCombination(A, 5, cache, 0, 4); 
+				int A[5] = { 1, 2, 3, 4, 5 };
+				int cache[5] = { 0, 0, 0, 0, 0 };
+				recCombination(A, 5, cache, 0, 4);
 			#endif
 			#ifdef DS_5_4_H_
-				size_t n = 5; 
-				int** mat = new int* [n]; 
+				size_t n = 5;
+				int** mat = new int* [n];
 				if (mat == nullptr) {
-					throw std::bad_alloc(); 
+					throw std::bad_alloc();
 				}
-				int* cache = nullptr; 
+				int* cache = nullptr;
 				int sample[5][5] =
 				{
 					{ 1, 9, 4, 5, 6 },
@@ -456,9 +455,9 @@ using std::endl;
 				for (size_t index = 0; index < n; ++index) {
 					cache = new int[n];
 					for (size_t jndex = 0; jndex < n; ++jndex) {
-						cache[jndex] = sample[index][jndex]; 
+						cache[jndex] = sample[index][jndex];
 					}
-					mat[index] = cache; 
+					mat[index] = cache;
 				}
 
 				sortRowAvg(mat, n);
@@ -467,13 +466,13 @@ using std::endl;
 					for (size_t jndex = 0; jndex < n; ++jndex) {
 						cout << mat[index][jndex] << '\t';
 					}
-					cout << endl; 
+					cout << endl;
 				}
 
 				for (size_t index = 0; index < n; ++index) {
-					delete[] mat[index]; 
+					delete[] mat[index];
 				}
-				delete[] mat; 
+				delete[] mat;
 			#endif
 			#ifdef DS_5_5_H_
 				size_t n = 5;
@@ -526,9 +525,9 @@ using std::endl;
 
 				for (size_t index = 0; index < n; ++index) {
 					for (size_t jndex = 0; jndex < n; ++jndex) {
-						cout << mat[index][jndex] << '\t'; 
+						cout << mat[index][jndex] << '\t';
 					}
-					cout << endl; 
+					cout << endl;
 				}
 
 				for (size_t index = 0; index < n; ++index) {
@@ -537,71 +536,71 @@ using std::endl;
 				delete[] mat;
 			#endif
 			#ifdef DS_5_11_H_
-				int A[10] = { -2,1,2,0,9,5,3,8,4,6 }; 
-				evenToFront(A, 10); 
+				int A[10] = { -2,1,2,0,9,5,3,8,4,6 };
+				evenToFront(A, 10);
 				for (size_t index = 0; index < 10; ++index) {
 					cout << A[index] << ' ';
 				}
 				cout << endl;
 			#endif
 			#ifdef DS_5_12_H_
-				size_t n = 0; 
+				size_t n = 0;
 				if (scanf("%zd", &n) != 1) {
-					throw std::bad_alloc(); 
+					throw std::bad_alloc();
 				}
 				while (getchar() != '\n') {
-					continue; 
+					continue;
 				}
 				char* S = new char[n + 1];
 				for (size_t index = 0; index < n; ++index) {
 					S[index] = getchar();
 				}
-				fflush(stdin); 
-				S[n] = '\0'; 
+				fflush(stdin);
+				S[n] = '\0';
 
 				char** P = new char* [100];
 				for (size_t index = 0; index < 100; ++index) {
 					P[index] = nullptr;
 				}
-				size_t Psize = 100; 
+				size_t Psize = 100;
 
-				char* cur = new char[n + 1]; 
+				char* cur = new char[n + 1];
 				for (size_t index = 0; index < n + 1; ++index) {
-					cur[index] = '\0'; 
+					cur[index] = '\0';
 				}
 
 				recPowerSet(S, n, cur, 0, 0, P, 0);
-			
-				size_t mov = 0; 
+
+				size_t mov = 0;
 				while (P[mov] != nullptr) {
-					printf("%s\n", P[mov]); 
-					++mov; 
+					printf("%s\n", P[mov]);
+					++mov;
 				}
 			#endif
 			#ifdef DS_5_14_H_
-				GLList sample = nullptr; 
-				sample = build(); 
+				GLList sample = nullptr;
+				sample = build();
 			#endif
 			#ifdef DS_5_16_H_
-				int front[3] = { 4, 27, 28 }; 
-				int rear[5] = { 9, 9, 9, 45, 47 }; 
-				sort(front, 3, rear, 5); 
+				int front[3] = { 4, 27, 28 };
+				int rear[5] = { 9, 9, 9, 45, 47 };
+				sort(front, 3, rear, 5);
 				for (size_t index = 0; index < 3; ++index) {
-					cout << front[index] << ' '; 
+					cout << front[index] << ' ';
 				}
 				for (size_t index = 0; index < 5; ++index) {
 					cout << rear[index] << ' ';
 				}
-				cout << endl; 
+				cout << endl;
 			#endif
 			#ifdef DS_5_18_H_
-				int A[5] = { 1, 2, 3, 4, 5 }; 
-				size_t B[5] = { 1, 3, 5, 4, 2 }; 
-				reorder(A, B, 5); 
+				int A[5] = { 1, 2, 3, 4, 5 };
+				size_t B[5] = { 1, 3, 5, 4, 2 };
+				reorder(A, B, 5);
 				for (size_t index = 0; index < 5; ++index) {
-					cout << A[index] << ' '; 
+					cout << A[index] << ' ';
 				}
-				cout << endl; 
+				cout << endl;
 			#endif
 			#ifdef DS_5_21_H_
 				MatNode mat[5] = {
@@ -610,13 +609,13 @@ using std::endl;
 					{ 2, 2, 3 },
 					{ 3, 1, 4 },
 					{ 4, 2, 5 }
-				}; 
-				Matrix result = fastTSpMat(mat, 3, 5); 
+				};
+				Matrix result = fastTSpMat(mat, 3, 5);
 				for (size_t index = 0; index < 5; ++index) {
 					cout << result[index].row_ << ' ';
 					cout << result[index].col_ << ' ';
 					cout << result[index].data_ << ' ';
-					cout << endl; 
+					cout << endl;
 				}
 			#endif
 		#endif
@@ -627,7 +626,7 @@ using std::endl;
 				TreeNode* rear = tree;
 				TreeNode* temp = nullptr;
 
-				tree->weight = 1; 
+				tree->weight = 1;
 
 				temp = new TreeNode;
 				temp->weight = 2;
@@ -655,7 +654,7 @@ using std::endl;
 				temp->weight = 7;
 				rear->right->right = temp;
 
-				cout << getWPL(tree) << endl; 
+				cout << getWPL(tree) << endl;
 
 			#endif
 			#ifdef DS_6_2_H_
@@ -747,7 +746,7 @@ using std::endl;
 				temp = new TreeNode;
 				temp->data = 4;
 				rear->left->left = temp;
-				
+
 				temp = new TreeNode;
 				temp->data = 5;
 				rear->left->right = temp;
@@ -765,13 +764,13 @@ using std::endl;
 				for (size_t index = 0; index < 3; ++index) {
 					cout << result[index] << ' ';
 				}
-				cout << endl; 
+				cout << endl;
 			#endif
 			#ifdef DS_6_7_H_
-				BiTree tree = nullptr; 
+				BiTree tree = nullptr;
 				while ((tree = buildBiTree()) != nullptr) {
-					cout << "This is "; 
-					isComplete(tree) ? (cout << "") : (cout << "not "); 
+					cout << "This is ";
+					isComplete(tree) ? (cout << "") : (cout << "not ");
 					cout << "a complete binary tree. " << endl;
 				}
 			#endif
@@ -781,30 +780,30 @@ using std::endl;
 				BiTree tree = buildComplTree(A, n);
 			#endif
 			#ifdef DS_6_9_H_
-				BiTree tree = buildBiTree(); 
-				char** result = btree2Arr(tree); 
+				BiTree tree = buildBiTree();
+				char** result = btree2Arr(tree);
 			#endif
 			#ifdef DS_6_10_H_
 				BiTree tree = buildBiTree();
-				size_t h = 0; 
+				size_t h = 0;
 				char** result = btree2Arr(tree, h);
-				BiTree T = levBuildTree(result, h); 
+				BiTree T = levBuildTree(result, h);
 			#endif
 			#ifdef DS_6_16_H_
-				BiTree result = buildBiTree(); 
-				TreeNode* p = result->left->right; 
-				TreeNode* q = result->left->right; 
-				TreeNode* r = ancestor(result, p, q); 
+				BiTree result = buildBiTree();
+				TreeNode* p = result->left->right;
+				TreeNode* q = result->left->right;
+				TreeNode* r = ancestor(result, p, q);
 				cout << r->data << endl;
 			#endif
 			#ifdef DS_6_30_H_
-				BiTree tree = buildBiTree(); 
-				preOrdTrav(tree); 
+				BiTree tree = buildBiTree();
+				preOrdTrav(tree);
 			#endif
 			#ifdef DS_6_39_H_
-				int pre[11] = { 1, 2, 4, 5, 10, 11, 3, 6, 12, 13, 7 }; 
-				int post[11] = { 4, 10, 11, 5, 2, 12, 13, 6, 7, 3, 1 }; 
-				BiTree tree = buildNormalBiTree(pre, post, 0, 10, 0, 10); 
+				int pre[11] = { 1, 2, 4, 5, 10, 11, 3, 6, 12, 13, 7 };
+				int post[11] = { 4, 10, 11, 5, 2, 12, 13, 6, 7, 3, 1 };
+				BiTree tree = buildNormalBiTree(pre, post, 0, 10, 0, 10);
 			#endif
 			#ifdef DS_6_47_H_
 				int pre[11] = { 1, 2, 4, 5, 10, 11, 3, 6, 12, 13, 7 };
@@ -816,54 +815,64 @@ using std::endl;
 					size_t nodeNum = 0;
 					BiTree sample = buildBiTree(nodeNum);
 					int* pre = new int[nodeNum + 1];
-					pre[nodeNum] = '\0'; 
+					pre[nodeNum] = '\0';
 					preOrdTrav(sample, pre);
 					int* in = new int[nodeNum + 1];
 					in[nodeNum] = '\0';
 					inOrdTrav(sample, in);
 					BiTree tree = buildPreInBiTree(pre, in, nodeNum);
 
-					cout << "Hit ENTER to exit. Enter any non-\'\\n\' character to build a new tree. " << endl << endl; 
-				} while (getchar() != '\n'); 
+					cout << "Hit ENTER to exit. Enter any non-\'\\n\' character to build a new tree. " << endl << endl;
+				} while (getchar() != '\n');
 			#endif
 			#ifdef DS_6_53_H_
-				BiTree sample = buildBiTree(); 
-				BiTree copy1 = recCopyBiTree(sample); 
-				BiTree copy2 = copyBiTree(sample); 
+				BiTree sample = buildBiTree();
+				BiTree copy1 = recCopyBiTree(sample);
+				BiTree copy2 = copyBiTree(sample);
 			#endif
 			#ifdef DS_6_55_H_
 				BiTree sample = buildBiTree();
-				connectLeaves(sample); 
+				connectLeaves(sample);
 			#endif
 			#ifdef DS_6_76_H_
 				BiTree tree = buildBiTree();
 				ThreadBTree threadTree = buildInOrdThread(tree);
-				tree = buildBiTree(); 
-				ThreadBTree child = buildInOrdThread(tree); 
-				cout << std::boolalpha << insertInOrdThread(child, threadTree->lchild->rchild); 
+				tree = buildBiTree();
+				ThreadBTree child = buildInOrdThread(tree);
+				cout << std::boolalpha << insertInOrdThread(child, threadTree->lchild->rchild);
 			#endif
 			#ifdef DS_6_79_H_
 				BiTree tree = buildBiTree();
 				ThreadBTree threadTree = buildInOrdThread(tree);
-				inOrdTrav(threadTree); 
+				inOrdTrav(threadTree);
 			#endif
 			#ifdef DS_6_81_H_
 				BiTree tree = buildBiTree();
 				ThreadBTree threadTree = buildInOrdThread(tree);
-				preOrdTrav(threadTree); 
+				preOrdTrav(threadTree);
 			#endif
 			#ifdef DS_6_82_H_
-				BiTree tree = buildBiTree(); 
-				ThreadBTree threadTree = buildPreOrdThread(tree); 
+				BiTree tree = buildBiTree();
+				ThreadBTree threadTree = buildPreOrdThread(tree);
 			#endif
 			#ifdef DS_6_93_H_
 				BiTree tree = buildBiTree();
 				ThreadBTree threadTree = buildInOrdThread(tree);
-				postOrdTrav(threadTree); 
+				postOrdTrav(threadTree);
 			#endif
-			#ifdef DS_6_95_H_
+			#ifdef DS_6_94_H_
 				BiTree tree = buildBST();
 				ThreadBTree threadTree = buildInOrdThread(tree);
+			#endif
+			#ifdef DS_6_97_H_
+				BiTree tree = buildBiTree();
+				printCatalog(tree);
+			#endif
+		#endif
+
+		#ifdef DS_10_H_
+			#ifdef DS_10_1_H_
+
 			#endif
 		#endif
 
@@ -923,6 +932,6 @@ using std::endl;
 	{
 
 
-		return 0; 
+		return 0;
 	}
 #endif
