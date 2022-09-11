@@ -2,7 +2,7 @@
 
 #include <iostream>
 // #include "test.h"
-#include "chpt_10/10_5.h"
+#include "chpt_10/10_19.h"
 
 using std::cout;
 using std::endl;
@@ -889,11 +889,31 @@ using std::endl;
 			#endif
 			#ifdef DS_10_5_H_
 				int list[10] = { 5, -1, 9, 4, 7, -5, -3, 2, 8, 9 };
-				insertSort(list, 10);
+				insertSort_2part(list, 10);
 				for (size_t index = 0; index < 10; ++index) {
 					cout << list[index] << ' ';
 				}
 				cout << endl;
+			#endif
+			#ifdef DS_10_6_H_
+
+			#endif
+			#ifdef DS_10_19_H_
+				int list[10] = { -5, -1, 9, 4, 7, -5, -3, 4, 8, 9 };
+				cout << "              List: "; 
+				for (size_t index = 0; index < 10; ++index) {
+					printf("% 2d ", list[index]);
+				}
+				cout << endl; 
+				quickSortAvg(list, 0, 9);
+				cout << "              List: ";
+				for (size_t index = 0; index < 10; ++index) {
+					printf("% 2d ", list[index]);
+				}
+				cout << endl; 
+			#endif
+			#ifdef DS_10_21_H_
+
 			#endif
 		#endif
 
