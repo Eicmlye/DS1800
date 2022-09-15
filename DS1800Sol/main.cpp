@@ -2,7 +2,7 @@
 
 #include <iostream>
 // #include "test.h"
-#include "chpt_10/10_19.h"
+#include "chpt_10/10_6.h"
 
 using std::cout;
 using std::endl;
@@ -913,7 +913,12 @@ using std::endl;
 				cout << endl; 
 			#endif
 			#ifdef DS_10_21_H_
-
+                int arr[10] = { -5, -1, 9, 4, 7, -5, -3, 9, 8, 4 };
+                partition(arr, 10); 
+                for (size_t index = 0; index < 10; ++index) {
+                    printf("%d ", arr[index]); 
+                }
+                putc('\n', stdout); 
 			#endif
 		#endif
 

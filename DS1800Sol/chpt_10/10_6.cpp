@@ -3,7 +3,16 @@
 #include <iostream>
 #include "10_6.h"
 
-void mergeSort_2part(LinkedList<int> list)
+LNode<int>** buildPList(LinkedList<int> list)
+{
+    LNode<int>* mov = list; 
+    LNode<int>* pList[10] = {}; 
+    size_t len = 0; 
+
+
+}
+
+void mergeSort_2part(LNode<int>** pList, size_t head, size_t tail)
 {
 
 }
