@@ -4,6 +4,8 @@
 #include "chpt_tag.h"
 #include "LinkedList.hpp"
 
-void mergeSort_2part(LinkedList<int> list); 
+LNode<int>** buildPList(LinkedList<int> list); 
+
+void mergeSort_2part(LNode<int>** pList, size_t head, size_t tail);
 
 #endif
