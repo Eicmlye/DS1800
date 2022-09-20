@@ -45,4 +45,53 @@ struct DFNode {
 template <typename DataType>
 using DFList = DFNode<DataType>*;
 
+#include <vector>
+using std::vector;
+
+template <typename DataType, typename ListNodeType>
+static ListNodeType* createSingleList(vector<DataType> initData, bool hasHead = true, bool isCyclic = false)
+{
+    ListNodeType* list = new ListNodeType;
+    ListNodeType* newNode = nullptr;
+
+    if (!hasHead) {
+        list->data = initData.at(0);
+    }
+    if (isCyclic) {
+        list->next = list;
+    }
+
+    for (size_t index = 0; index < ((hasHead) ? initData.size() : initData.size() - 1); ++index) {
+        newNode = new ListNodeType(initData.at(initData.size() - 1 - index), list->next);
+        list->next = newNode;
+    }
+
+    return list;
+}
+
+template <typename DataType, typename ListNodeType>
+static ListNodeType* createDoubleList(vector<DataType> initData, bool hasHead = true, bool isCyclic = false)
+{
+    ListNodeType* list = new ListNodeType;
+    ListNodeType* newNode = nullptr;
+
+    if (!hasHead) {
+        list->data = initData.at(0);
+    }
+    if (isCyclic) {
+        list->next = list;
+        list->pred = list;
+    }
+
+    for (size_t index = 0; index < ((hasHead) ? initData.size() : initData.size() - 1); ++index) {
+        newNode = new ListNodeType(initData.at(initData.size() - 1 - index), list->next);
+        list->next = newNode;
+        newNode->pred = list;
+        if (newNode->next != nullptr) {
+            newNode->next->pred = newNode;
+        }
+    }
+
+    return list;
+}
 #endif
