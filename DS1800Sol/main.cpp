@@ -2,23 +2,12 @@
 
 #include <iostream>
 // #include "test.h"
-#include "chpt_10/10_6.h"
+#include "chpt_10/10_24.h"
 
 using std::cout;
 using std::endl;
 
 #ifndef DS_TEST_H_
-	#ifdef DS_LINKEDLIST_H_
-		#include <vector>
-		using std::vector;
-
-		template <typename DataType, typename ListNodeType>
-		static ListNodeType* createSingleList(vector<DataType> initData, bool hasHead = true, bool isCyclic = false);
-
-		template <typename DataType, typename ListNodeType>
-		static ListNodeType* createDoubleList(vector<DataType> initData, bool hasHead = true, bool isCyclic = false);
-	#endif
-
 	int main(void)
 	{
 		#ifdef DS_2_H_
@@ -896,10 +885,17 @@ using std::endl;
 				cout << endl;
 			#endif
 			#ifdef DS_10_6_H_
-
+                LinkedList<int> list = createSingleList<int, LNode<int>>({ -5, -1, 9, 4, 7, -5, -3, 9, 8, 4 });
+                mergeSort(list, 10); 
+                LNode<int>* mov = list->next; 
+                while (mov != nullptr) {
+                    printf("%d ", mov->data); 
+                    mov = mov->next; 
+                }
+                putc('\n', stdout); 
 			#endif
 			#ifdef DS_10_19_H_
-				int list[10] = { -5, -1, 9, 4, 7, -5, -3, 4, 8, 9 };
+                int list[10] = { -5, -1, 9, 4, 7, -5, -3, 9, 8, 4 }; // { -5, -1, 9, 4, 7, -5, -3, 4, 8, 9 };
 				cout << "              List: "; 
 				for (size_t index = 0; index < 10; ++index) {
 					printf("% 2d ", list[index]);
@@ -920,59 +916,18 @@ using std::endl;
                 }
                 putc('\n', stdout); 
 			#endif
+            #ifdef DS_10_24_H_
+                int arr[10] = { -5, -1, 9, 4, 7, -5, -3, 9, 8, 4 };
+                quickSort(arr, 10);
+                for (size_t index = 0; index < 10; ++index) {
+                    printf("%d ", arr[index]);
+                }
+                putc('\n', stdout);
+            #endif
 		#endif
 
 		return 0;
 	}
-
-	#ifdef DS_LINKEDLIST_H_
-		template <typename DataType, typename ListNodeType>
-		static ListNodeType* createSingleList(vector<DataType> initData, bool hasHead, bool isCyclic)
-	{
-		ListNodeType* list = new ListNodeType;
-		ListNodeType* newNode = nullptr;
-
-		if (!hasHead) {
-			list->data = initData.at(0);
-		}
-		if (isCyclic) {
-			list->next = list;
-		}
-
-		for (size_t index = 0; index < ((hasHead) ? initData.size() : initData.size() - 1); ++index) {
-			newNode = new ListNodeType(initData.at(initData.size() - 1 - index), list->next);
-			list->next = newNode;
-		}
-
-		return list;
-	}
-
-		template <typename DataType, typename ListNodeType>
-		static ListNodeType* createDoubleList(vector<DataType> initData, bool hasHead, bool isCyclic)
-	{
-		ListNodeType* list = new ListNodeType;
-		ListNodeType* newNode = nullptr;
-
-		if (!hasHead) {
-			list->data = initData.at(0);
-		}
-		if (isCyclic) {
-			list->next = list;
-			list->pred = list;
-		}
-
-		for (size_t index = 0; index < ((hasHead) ? initData.size() : initData.size() - 1); ++index) {
-			newNode = new ListNodeType(initData.at(initData.size() - 1 - index), list->next);
-			list->next = newNode;
-			newNode->pred = list;
-			if (newNode->next != nullptr) {
-				newNode->next->pred = newNode;
-			}
-		}
-
-		return list;
-	}
-	#endif
 #else
 	int main(void)
 	{
