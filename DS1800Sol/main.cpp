@@ -2,7 +2,7 @@
 
 #include <iostream>
 // #include "test.h"
-#include "chpt_10/10_24.h"
+#include "chpt_10/10_25.h"
 
 using std::cout;
 using std::endl;
@@ -923,6 +923,17 @@ using std::endl;
                     printf("%d ", arr[index]);
                 }
                 putc('\n', stdout);
+            #endif
+            #ifdef DS_10_25_H_
+                int arr[10] = { 1, 3, 3, 2, 3, 3, 2, 1, 1, 2 }; 
+                sort3Colors(arr, 10); 
+                for (size_t index = 0; index < 10; ++index) {
+                    printf("%d ", arr[index]); 
+                }
+                putc('\n', stdout); 
+            #endif
+            #ifdef DS_10_27_H_
+
             #endif
 		#endif
 
