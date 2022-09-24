@@ -2,7 +2,7 @@
 
 #include <iostream>
 // #include "test.h"
-#include "chpt_10/10_25.h"
+#include "chpt_10/10_34.h"
 
 using std::cout;
 using std::endl;
@@ -933,7 +933,28 @@ using std::endl;
                 putc('\n', stdout); 
             #endif
             #ifdef DS_10_27_H_
+                int arr[7] = { 5, -1, 2, 0, 0, -9, 3 }; 
+                size_t targetOrder = 0; 
 
+                printf("Enter q to quit. \n");
+                while (scanf("%zd", &targetOrder) == 1) {
+                    printf("The %zd-th min is %d. \n", targetOrder, qsFind(arr, 0, 6, targetOrder));
+                }
+            #endif
+            #ifdef DS_10_31_H_
+                int arr[10] = { -5, -1, 9, 4, 7, -5, -3, 9, 8, 4 };
+                buildMaxHeap(arr, 10);
+                for (size_t index = 0; index < 10; ++index) {
+                    printf("%d ", arr[index]);
+                }
+                putc('\n', stdout);
+            #endif
+            #ifdef DS_10_34_H_
+                heapSort(arr, 10);
+                for (size_t index = 0; index < 10; ++index) {
+                    printf("%d ", arr[index]);
+                }
+                putc('\n', stdout);
             #endif
 		#endif
 

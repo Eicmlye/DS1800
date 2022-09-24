@@ -3,6 +3,6 @@
 
 #include "chpt_tag.h"
 
-
+int qsFind(int* list, size_t n, size_t tail, size_t targetInd);
 
 #endif
