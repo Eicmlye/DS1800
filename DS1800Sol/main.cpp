@@ -2,7 +2,7 @@
 
 #include <iostream>
 // #include "test.h"
-#include "chpt_10/10_34.h"
+#include "chpt_10/10_38.h"
 
 using std::cout;
 using std::endl;
@@ -950,11 +950,30 @@ using std::endl;
                 putc('\n', stdout);
             #endif
             #ifdef DS_10_34_H_
+                int arr[10] = { -5, -1, 9, 4, 7, -5, -3, 9, 8, 4 };
                 heapSort(arr, 10);
                 for (size_t index = 0; index < 10; ++index) {
                     printf("%d ", arr[index]);
                 }
                 putc('\n', stdout);
+            #endif
+            #ifdef DS_10_35_H_
+                int arr[10] = { -5, -1, 9, 4, 7, -5, -3, 9, 8, 4 };
+                heapSort(arr, 10);
+                for (size_t index = 0; index < 10; ++index) {
+                    printf("%d ", arr[index]);
+                }
+                putc('\n', stdout);
+            #endif
+            #ifdef DS_10_38_H_
+                LinkedList<unsigned int> list = createSingleList<unsigned int, LNode<unsigned int>>({ 12, 832, 93, 745, 53, 674, 2, 497 }); 
+                radixSort(list, 3); 
+                LNode<unsigned int>* mov = list; 
+                while (mov->next != nullptr) {
+                    mov = mov->next; 
+                    printf("%u ", mov->data); 
+                }
+                putc('\n', stdout); 
             #endif
 		#endif
 
