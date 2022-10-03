@@ -2,7 +2,7 @@
 
 #include <iostream>
 // #include "test.h"
-#include "chpt_10/10_38.h"
+#include "chpt_9/9_10.h"
 
 using std::cout;
 using std::endl;
@@ -856,6 +856,24 @@ using std::endl;
 			#ifdef DS_6_97_H_
 				BiTree tree = buildBiTree();
 				printCatalog(tree);
+			#endif
+		#endif
+
+		#ifdef DS_9_H_
+			#ifdef DS_9_10_H_
+				char isAgain = '\n'; 
+				do {
+					if (isAgain != '\n') {
+						while (getchar() != '\n') {
+							continue; 
+						}
+					}
+					BiTree tree = buildBiTree();
+					/* programs */
+					printf(isBST(tree) ? "true\n" : "false\n");
+
+					printf("Hit ENTER to exit. Enter any non-\'\\n\' character to build a new tree. \n\n");
+				} while ((isAgain = getchar()) != '\n');
 			#endif
 		#endif
 
