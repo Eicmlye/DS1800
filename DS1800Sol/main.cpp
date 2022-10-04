@@ -2,7 +2,7 @@
 
 #include <iostream>
 // #include "test.h"
-#include "chpt_9/9_10.h"
+#include "chpt_9/9_14.h"
 
 using std::cout;
 using std::endl;
@@ -874,6 +874,15 @@ using std::endl;
 
 					printf("Hit ENTER to exit. Enter any non-\'\\n\' character to build a new tree. \n\n");
 				} while ((isAgain = getchar()) != '\n');
+			#endif
+			#ifdef DS_9_14_H_
+				BiTree tree = buildBST(); 
+
+				printf("This is"); 
+				printf(isBST(tree) ? "" : "not"); 
+				printf(" a BST. \n");
+
+				fwriteDescend(tree); 
 			#endif
 		#endif
 
