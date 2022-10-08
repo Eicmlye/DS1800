@@ -48,7 +48,7 @@ using DFList = DFNode<DataType>*;
 #include <vector>
 using std::vector;
 
-template <typename DataType, typename ListNodeType>
+template <typename DataType, typename ListNodeType = LNode<DataType>>
 ListNodeType* createSingleList(vector<DataType> initData, bool hasHead = true, bool isCyclic = false)
 {
     ListNodeType* list = new ListNodeType;

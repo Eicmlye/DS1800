@@ -2,7 +2,7 @@
 
 #include <iostream>
 // #include "test.h"
-#include "chpt_9/9_14.h"
+#include "chpt_9/9_29.h"
 
 using std::cout;
 using std::endl;
@@ -883,6 +883,14 @@ using std::endl;
 				printf(" a BST. \n");
 
 				fwriteDescend(tree); 
+			#endif
+			#ifdef DS_9_15_H_
+				BiTree tree = buildBST();
+				delBSTNode(tree, 3); 
+			#endif
+			#ifdef DS_9_29_H_
+				AVLTree tree = buildBST();
+				cout << buildBalanceFactor(tree) << endl;
 			#endif
 		#endif
 
