@@ -1,8 +1,6 @@
 #ifndef DS_TEST_H_
 #define DS_TEST_H_
 
-#include "test.hpp"
-
 template <typename DataType>
 class BTNode
 {
@@ -13,5 +11,7 @@ class BTNode
 
 template <typename DataType>
 using BTree = BTNode<DataType>*;
+
+#include "test.hpp"
 
 #endif
