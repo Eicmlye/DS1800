@@ -2,7 +2,7 @@
 
 #include <iostream>
 // #include "test.h"
-#include "chpt_9/9_29.h"
+#include "chpt_9/9_31.h"
 
 using std::cout;
 using std::endl;
@@ -891,6 +891,14 @@ using std::endl;
 			#ifdef DS_9_29_H_
 				AVLTree tree = buildBST();
 				cout << buildBalanceFactor(tree) << endl;
+			#endif
+			#ifdef DS_9_30_H_
+				AVLTree tree = buildAVL();
+				cout << recGetHeight(tree) << endl;
+			#endif
+			#ifdef DS_9_31_H_
+				AVLTree tree = buildAVL();
+				cout << getHeight(tree) << endl; 
 			#endif
 		#endif
 

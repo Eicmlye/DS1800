@@ -1,5 +1,5 @@
-#ifndef DS_9_31_H_
-#define DS_9_31_H_
+#ifndef DS_9_30_H_
+#define DS_9_30_H_
 
 #include "chpt_tag.h"
 
@@ -11,5 +11,6 @@ typedef struct AVLNode {
 } AVLNode, * AVLTree;
 
 AVLTree buildAVL(void);
-int getHeight(AVLTree tree);
+int recGetHeight(AVLTree tree);
+
 #endif
