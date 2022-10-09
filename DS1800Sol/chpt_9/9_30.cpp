@@ -3,7 +3,7 @@
 #include <iostream>
 #include <stack>
 #include <vector>
-#include "9_31.h"
+#include "9_30.h"
 
 using std::stack;
 using std::pair;
@@ -73,16 +73,16 @@ AVLTree buildAVL(void)
 	tree->data_ = cache;
 
 	AVLNode* newNode = nullptr;
-	AVLNode* mov = nullptr; 
+	AVLNode* mov = nullptr;
 	stack<AVLpair> stk = {};
 
 	while (scanf("%d", &cache) == 1) {
 		// init newNode;
-		newNode = new AVLNode; 
+		newNode = new AVLNode;
 		newNode->data_ = cache;
 
 		// insert newNode;
-		stk = {}; 
+		stk = {};
 		mov = tree;
 		while (mov != nullptr && mov->data_ != cache) {
 			stk.push({ mov, (mov->data_ > cache) ? false : true });
@@ -133,7 +133,7 @@ AVLTree buildAVL(void)
 		}
 
 		// In case that root.first is the root of tree;
-		bool headNull = false; 
+		bool headNull = false;
 		if (ubList[2].first == nullptr) {
 			headNull = true;
 			ubList[2].first = new AVLNode;
@@ -201,15 +201,15 @@ AVLTree buildAVL(void)
 	return tree;
 }
 
-int getHeight(AVLTree tree)
+int recGetHeight(AVLTree tree)
 {
-	AVLNode* mov = tree;
-	int height = 0;
-
-	while (mov != nullptr) {
-		mov = (mov->bf_ > 0 ? mov->lchild_ : mov->rchild_);
-		++height;
+	if (tree == nullptr) {
+		return 0;
 	}
 
-	return height;
+	if (tree->lchild_ == nullptr && tree->rchild_ == nullptr) {
+		return 1;
+	}
+
+	return (tree->bf_ > 0 ? recGetHeight(tree->lchild_) : recGetHeight(tree->rchild_)) + 1;
 }
