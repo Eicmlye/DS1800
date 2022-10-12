@@ -2,7 +2,7 @@
 
 #include <iostream>
 // #include "test.h"
-#include "chpt_9/9_31.h"
+#include "chpt_7/7_.h"
 
 using std::cout;
 using std::endl;
@@ -859,6 +859,10 @@ using std::endl;
 			#endif
 		#endif
 
+		#ifdef DS_7_H_
+
+		#endif
+
 		#ifdef DS_9_H_
 			#ifdef DS_9_10_H_
 				char isAgain = '\n'; 
@@ -899,6 +903,49 @@ using std::endl;
 			#ifdef DS_9_31_H_
 				AVLTree tree = buildAVL();
 				cout << getHeight(tree) << endl; 
+			#endif
+			#ifdef DS_9_32_H_
+				AVLTree tree = buildAVL();
+				buildLSize(tree);
+				for (size_t index = 1; index <= 10; ++index) {
+					cout << getKthNode(tree, index) << endl;
+				}
+			#endif
+			#ifdef DS_9_42_H_
+				#define PRINTINFO(data, exam, info, fail) printf(exam ? info : fail, data)
+				#define PRINTINSINFO(data) PRINTINFO(data, hashInsert(HT, data), "%d inserted. \n", "Insertation failure: %d. \n")
+				#define PRINTFINDINFO(data) PRINTINFO(data, hashFind(HT, data), "%d found. \n", "%d not found. \n")
+				#define PRINTDELINFO(data) PRINTINFO(data, hashDelete(HT, data), "%d deleted. \n", "%d not found. Deletion failure. \n")
+
+				hashTable HT = initHash();
+
+				PRINTINSINFO(0);
+				PRINTINSINFO(2);
+				PRINTINSINFO(3);
+				PRINTINSINFO(5);
+				PRINTINSINFO(8);
+				PRINTINSINFO(12);
+				PRINTINSINFO(13);
+
+				cout << endl;
+
+				PRINTFINDINFO(1);
+				PRINTFINDINFO(3);
+				PRINTFINDINFO(5);
+				PRINTFINDINFO(9);
+				PRINTFINDINFO(12);
+				PRINTFINDINFO(13);
+
+				cout << endl;
+
+				PRINTDELINFO(0);
+				PRINTDELINFO(1);
+				PRINTDELINFO(6);
+				PRINTDELINFO(8);
+				PRINTDELINFO(12);
+				PRINTDELINFO(13);
+
+				destroyHash(HT);
 			#endif
 		#endif
 
